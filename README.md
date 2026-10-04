@@ -1,39 +1,31 @@
-# MultiPU Hub — complete foundation
+# MultiPU Hub — Automating Excellence
 
-This package contains the current MultiPU Hub frontend, Cloudflare Worker backend, PWA files, and GitHub Pages workflow.
+Single-page site (no build step): `index.html`. Includes calligraphic design, light "circuit + current" and dark "stars, galaxies, black hole" backgrounds, a settings hub (appointments, preferences, support), the AURA AI agent, an owner Control Center, a maker QR/credit footer, and **double-tap / double-click anywhere = universal Back** (closes the top overlay, steps back through pages, then Home).
 
-## What is now implemented
-- MultiPU Hub core UI and AURA assistant.
-- Persistent AURA conversation on the device.
-- Human → robot → human physical 3D loader turn; the conflicting flat-transform rule has been removed.
-- About overlay from the MultiPU Hub logo with Cancel/Back behavior.
-- Partner / Offspring network UI and owner/admin Network Control Center.
-- AiSMUS featured-market entry point (configurable; verify/replace the destination before launch).
-- Cloud Intelligence status/health hooks and lifecycle fields: active, quiet, dormant, archived.
-- Cloudflare Worker API backed by Supabase Postgres.
-- Supabase database tables for profiles, sites, conversations/messages, appointments, support tickets, proposals, telemetry, health snapshots and system settings.
-- PWA manifest, icons, 404 page and GitHub Pages workflow.
-- No service-role database key is placed in the browser package.
+## Publish on GitHub Pages
+1. Create a repo, upload everything in this folder, push to `main`.
+2. Settings → Pages → Source: **GitHub Actions** (the included workflow deploys on every push).
 
-## Backend setup
-1. In Cloudflare Workers, create the Worker from `worker.js`.
-2. Set variables in `wrangler.toml` and secrets:
-   - `SUPABASE_URL=https://filsrgrxdkzkqaviowec.supabase.co`
-   - `SUPABASE_SERVICE_ROLE_KEY` = your Supabase service-role key (secret).
-   - Optional `AI_BASE_URL` = your private Ollama-compatible gateway.
-   - Optional STT/TTS/avatar URLs.
-3. Deploy the Worker.
-4. Put the deployed Worker URL into `MP.apiBase` in `index.html`.
-5. If Google login is used, put the Google OAuth client ID into `MP.googleClientId` and authorize the deployed domain.
+## Before going live (3 settings at the top of the main script in `index.html`)
+```js
+var MP={paystackKey:'',googleClientId:'',apiBase:''}
+```
+- `googleClientId` — Google Cloud → Credentials → OAuth client (Web). Add your Pages URL as an authorized origin. Required for Google sign-in and for owner recognition.
+- `apiBase` — URL of the deployed worker (below). Enables live-web AURA and publishing site edits to all visitors.
+- Maker credit: edit the `maker-config` JSON block near the end of `index.html` (name, GitHub handle, repo URL). The footer QR points at this page, the repo, or your profile.
 
-## Database
-The Supabase production project has been initialized with the MultiPU Hub core schema. RLS is enabled. Public site discovery is readable; user-owned records are protected by auth policies; Worker service-role operations are server-side only.
+## Messages & contact → email
+Contact form, organization applications, quote requests, tickets, appointment requests and worker requests are sent to **multipuhub@gmail.com** (cc **mdmasterdan@gmail.com**) through [FormSubmit](https://formsubmit.co). **One-time step:** send any test message, then open the activation email FormSubmit sends to multipuhub@gmail.com and confirm. If sending fails the visitor's email app opens with the message prefilled.
 
-## AiSMUS
-The name is wired as the featured market destination, but the exact AiSMUS URL was not established by the supplied project materials. The current package uses a configurable official AISM destination as a safe placeholder. Replace it with the exact AiSMUS URL you own/operate before launch.
+## Worker (AI with web search, shared edits)
+```bash
+cd worker && npx wrangler kv namespace create KV   # paste id in wrangler.toml
+npx wrangler secret put ANTHROPIC_API_KEY
+npx wrangler secret put GOOGLE_CLIENT_ID
+npx wrangler deploy
+```
 
-## Self-hosted AI
-The Worker supports an Ollama-compatible endpoint. The voice/avatar stack is intentionally an integration boundary rather than bundled model binaries. You still need to deploy your chosen STT, TTS, orchestration and avatar services and place their private URLs in Worker secrets.
+## Owners
+`mdmasterdan@gmail.com` and `multipuhub@gmail.com` (Developer, Technical Admin, Management Admin) after Google-verified sign-in. **Security note:** the static site only gates the UI; real enforcement happens in the worker (it verifies the Google token). Appointments, tickets and team roles are stored per browser until moved to a shared database.
 
-## GitHub
-Upload the package contents to the `AiSMS` branch of `MULTIPU/HUB`. GitHub Pages can host the static frontend; the Worker and Supabase database are separate backend services.
+MIT licensed.
