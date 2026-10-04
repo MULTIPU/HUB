@@ -1,0 +1,22 @@
+name = "multipu-hub-worker"
+main = "worker.js"
+compatibility_date = "2026-10-03"
+
+[vars]
+ALLOWED_ORIGIN = "*"
+ADMIN_EMAILS = "mdmasterdan@gmail.com,multipuhub@gmail.com"
+AI_MODEL = "qwen2.5:7b"
+# Put your self-hosted Ollama gateway URL in a secret/variable when deploying.
+# AI_BASE_URL = "https://your-private-ai-gateway.example"
+
+[[kv_namespaces]]
+binding = "SITES"
+id = "REPLACE_WITH_SITES_KV_ID"
+
+[[kv_namespaces]]
+binding = "SITE_CONFIG"
+id = "REPLACE_WITH_SITE_CONFIG_KV_ID"
+
+[[kv_namespaces]]
+binding = "TELEMETRY"
+id = "REPLACE_WITH_TELEMETRY_KV_ID"
