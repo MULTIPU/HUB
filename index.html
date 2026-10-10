@@ -391,10 +391,6 @@ html.nothome #hero{display:none!important}
 /* ===== v11: AIRDROPS & CRYPTO HUB (isolated, only used inside the Airdrops tab) ===== */
 .pft{overflow-x:auto;scrollbar-width:none}.pft::-webkit-scrollbar{display:none}.pft button{flex:1 0 auto;padding:10px 14px;white-space:nowrap}
 .cx .pills{display:flex;gap:6px;margin:6px 0 12px;flex-wrap:wrap}.cx .pills button{padding:8px 14px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--ink);font:700 13px system-ui,sans-serif;cursor:pointer}.cx .pills button.on{background:var(--pur2);color:#fff;border-color:var(--pur2)}
-.cxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.cxc{display:flex;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.4)}
-.cxh{display:flex;gap:12px;align-items:center}
-.cxl{width:56px;height:56px;flex:none;border-radius:14px;object-fit:contain;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font:800 24px Georgia,serif;color:#fff}
 .cxn{font:700 17px Georgia,serif;overflow-wrap:anywhere;line-height:1.2}
 .cxb{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .cxs{padding:3px 11px;border-radius:12px;font:700 12px system-ui,sans-serif;color:#fff}.cxs.g{background:#1f8a5b}.cxs.r{background:#c62d42}
@@ -403,13 +399,25 @@ html.nothome #hero{display:none!important}
 .cxa{display:flex;gap:8px}.cxa .btn{flex:1;padding:12px 8px}.cxa .btn[disabled]{opacity:.65}
 .cxseg{display:flex;border:1px solid var(--gold);border-radius:10px;overflow:hidden}.cxseg button{flex:1;padding:10px;border:0;background:transparent;color:var(--ink);font:700 13px system-ui,sans-serif;cursor:pointer}.cxseg button.on{background:var(--pur2);color:#fff}
 .cxr{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.cxr .cxl{width:36px;height:36px;font-size:16px;border-radius:9px}.cxr small{display:block;color:var(--mut);font:12px system-ui,sans-serif}
-.cxr .ctl{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font:12px system-ui,sans-serif}
+.cxr .cxr .ctl{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font:12px system-ui,sans-serif}
 .cxr .ctl label{display:flex;align-items:center;gap:6px}
 .cxr .ctl .mini{padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;font:600 12px system-ui,sans-serif}
 .sw{width:46px;height:26px;border-radius:13px;background:#c62d42;position:relative;border:0;cursor:pointer;flex:none}.sw:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s}.sw.on{background:#1f8a5b}.sw.on:after{left:23px}
 .cxpv{display:flex;gap:10px;align-items:center;min-height:0;margin-top:6px}
 @media(prefers-reduced-motion:reduce){.sw:after{transition:none}}
+
+.oct{--s:96px;display:block;flex:none;width:var(--s);height:var(--s);padding:3px;box-sizing:border-box;background:linear-gradient(135deg,#d4af37,#7b3fe4);clip-path:polygon(29.3% 0,70.7% 0,100% 29.3%,100% 70.7%,70.7% 100%,29.3% 100%,0 70.7%,0 29.3%)}
+.oct .cxl{display:grid;place-items:center;width:100%;height:100%;box-sizing:border-box;padding:13%;object-fit:contain;background:#fff;color:#fff;font:800 36px Georgia,serif;clip-path:polygon(29.3% 0,70.7% 0,100% 29.3%,100% 70.7%,70.7% 100%,29.3% 100%,0 70.7%,0 29.3%)}
+.oct span.cxl{padding:0}
+.cxr .oct{--s:46px}.cxr .oct .cxl{font-size:19px;padding:11%}.cxpv .oct{--s:58px}
+.cxs2{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:4px 2px 12px;scrollbar-width:none}.cxs2::-webkit-scrollbar{display:none}
+.cxnav{display:flex;align-items:center;justify-content:space-between;gap:10px}.cxnav .mini{width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:transparent;color:var(--ink);font-size:24px;cursor:pointer}
+#cx_q{margin-bottom:12px}
+
+.cxc{--ch:38px;flex:0 0 84%;max-width:330px;scroll-snap-align:center;padding:3px;box-sizing:border-box;background:linear-gradient(135deg,#d4af37,#d6407f 55%,#7b3fe4);clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)),0 var(--ch))}
+.cxi{--ch:36.8px;position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:34px 28px 30px;background:var(--parch2);clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)),0 var(--ch))}
+.cxi .cxn{font-size:19px}.cxi .cxb{justify-content:center}.cxi .cxa{width:100%;margin-top:auto}
+.cxnw{position:absolute;top:9px;left:50%;transform:translateX(-50%);background:#d6407f;color:#fff;font:800 11px system-ui,sans-serif;padding:3px 10px;border-radius:10px}
 /* ===== v10: LETTERS, FORMS, PAYMENTS ===== */
 .pfpage,.flpage{background:var(--parch2);border:2px solid var(--gold);border-radius:16px;margin:10px auto!important;padding:18px 16px!important}
 .flpage{max-width:820px;min-height:70vh}.flpage .t{margin-bottom:10px}
@@ -1505,12 +1513,12 @@ var _g2=window.mpGo;window.mpGo=function(id){_g2(id);$('bp1').classList.toggle('
 window.mpProfile=pfOpen;
 /* ===== v11: AIRDROPS & CRYPTO HUB (isolated sub-view inside the profile) ===== */
 MP.supabaseUrl=MP.supabaseUrl||'';MP.supabaseKey=MP.supabaseKey||'';
-var CX={u:'',mode:'local',note:'',projects:[],joined:{},loaded:0,busy:0,view:'hub',sb:null},cxF={title:'',link:'',img:'',status:'published',trend:'up'};
+var CX={u:'',mode:'local',note:'',projects:[],joined:{},loaded:0,busy:0,view:'hub',q:'',sb:null},cxF={title:'',link:'',img:'',status:'published',trend:'up'};
 function cxDom(u){try{var x=new URL(/^https?:\/\//i.test(u)?u:'https://'+u);return/^https?:$/.test(x.protocol)&&x.hostname.indexOf('.')>0?x.hostname.replace(/^www\./,''):''}catch(e){return''}}
 function cxUrl(u){u=(u||'').trim();if(u&&!/^https?:\/\//i.test(u))u='https://'+u;return cxDom(u)?u:''}
 function cxLogo(p){return/^https?:\/\//i.test(p.logo_url||'')?p.logo_url:(cxDom(p.referral_link)?'https://icon.horse/icon/'+cxDom(p.referral_link):'')}
 function cxTile(t,c){var ch=((t||'?')[0]||'?').toUpperCase();return'<span class="'+(c||'cxl')+'" style="background:'+PFC[ch.charCodeAt(0)%PFC.length]+'">'+esc(ch)+'</span>'}
-function cxLg(p){var s=cxLogo(p);return s?'<img class="cxl" src="'+esc(s)+'" data-d="'+esc(cxDom(p.referral_link))+'" data-n="'+esc(p.title||'?')+'" alt="" loading="lazy" referrerpolicy="no-referrer">':cxTile(p.title)}
+function cxLg(p){var s=cxLogo(p);return'<span class="oct">'+(s?'<img class="cxl" src="'+esc(s)+'" data-d="'+esc(cxDom(p.referral_link))+'" data-n="'+esc(p.title||'?')+'" alt="" loading="lazy" referrerpolicy="no-referrer">':cxTile(p.title))+'</span>'}
 function cxBadge(p){var s=p.status;return'<span class="cxs '+(s=='published'?'g':'r')+'">'+(s=='published'?'Active':s=='ended'?'Ended':'Unpublished')+'</span>'}
 function cxTr(p){var t=p.trend;return'<span class="cxt '+(t=='up'?'u':t=='down'?'d':'n')+'" role="img" aria-label="Trend '+t+'">'+(t=='up'?'▲':t=='down'?'▼':'●')+'</span>'}
 async function cxSb(){if(CX.sb)return CX.sb;CX.note='';if(!MP.supabaseUrl||!MP.supabaseKey)return null;
@@ -1521,15 +1529,19 @@ CX.sb=sb;return sb}
 function cxLocal(){CX.mode='local';CX.projects=ld('mu_cx_projects',[]);CX.joined={};ld('mu_cx_joined_'+U,[]).forEach(function(i){CX.joined[i]=1})}
 async function cxRefresh(){CX.busy=1;CX.u=U;try{var sb=await cxSb();if(sb){var a=await sb.from('crypto_projects').select('*').order('created_at',{ascending:false}),b=await sb.from('user_participations').select('project_id');if(a.error||b.error)throw(a.error||b.error);CX.mode='cloud';CX.projects=a.data;CX.joined={};b.data.forEach(function(x){CX.joined[x.project_id]=1})}else cxLocal()}catch(e){CX.sb=null;CX.note='Cloud unavailable ('+(e.message||'error')+'). Showing this device only.';cxLocal()}CX.loaded=1;CX.busy=0;if(pfOn()&&pft=='c')pfR()}
 function cxKeep(){['title','link','img'].forEach(function(k){var e=$('cx_'+k[0]);if(e)cxF[k]=e.value})}
-function cxCard(p){var j=CX.joined[p.id];return'<div class="cxc"><div class="cxh">'+cxLg(p)+'<div class="cxn">'+esc(p.title)+'</div></div><div class="cxb">'+cxBadge(p)+cxTr(p)+'</div>'+(p.description?'<p class="cxd">'+esc(p.description)+'</p>':'')+'<div class="cxa"><button class="btn b1" data-cx="open" data-id="'+p.id+'">Join Now</button><button class="btn b2" data-cx="joined" data-id="'+p.id+'"'+(j?' disabled':'')+'>'+(j?'✓ Joined':'I Have Joined')+'</button></div></div>'}
+function cxNew(p){return Date.now()-new Date(p.created_at||0)<6048e5}
+function cxCard(p,my){var jn=CX.joined[p.id];return'<div class="cxc"><div class="cxi">'+(cxNew(p)?'<span class="cxnw">NEW</span>':'')+cxLg(p)+'<div class="cxn">'+esc(p.title)+'</div><div class="cxb">'+cxBadge(p)+cxTr(p)+'</div>'+(p.description?'<p class="cxd">'+esc(p.description)+'</p>':'')+(my?'<div class="cxa"><button class="btn b2" data-cx="open" data-id="'+p.id+'">Open</button></div>':'<div class="cxa"><button class="btn b1" data-cx="open" data-id="'+p.id+'">Join Now</button><button class="btn b2" data-cx="joined" data-id="'+p.id+'"'+(jn?' disabled':'')+'>'+(jn?'✓ Joined':'I Have Joined')+'</button></div>')+'</div></div>'}
+function cxItems(){var q=(CX.q||'').trim().toLowerCase(),own=isOwner();return CX.projects.filter(function(p){return CX.view=='my'?CX.joined[p.id]:(p.status!='unpublished'||CX.joined[p.id]||own)}).filter(function(p){return!q||((p.title||'')+' '+(p.description||'')+' '+cxDom(p.referral_link)).toLowerCase().indexOf(q)>-1})}
+function cxList(){var a=cxItems();if(!a.length)return'<p class="note">'+(CX.q?'No project matches “'+esc(CX.q)+'”.':CX.view=='my'?'You have not joined any project yet. Tap <b>I Have Joined</b> on a card in the Hub to track it here.':'No projects yet.'+(isOwner()?' Open Manage to add one.':' Check back soon.'))+'</p>';
+return'<div class="cxs2" id="cx_s" tabindex="0" aria-label="Projects. Swipe left or right.">'+a.map(function(p){return cxCard(p,CX.view=='my')}).join('')+'</div><div class="cxnav"><button class="mini" data-cx="nav" data-d="-1" aria-label="Previous project">‹</button><span id="cx_c" class="note">1 of '+a.length+' · swipe ← →</span><button class="mini" data-cx="nav" data-d="1" aria-label="Next project">›</button></div>'}
+function cxFill(){var e=$('cx_list');if(e)e.innerHTML=cxList()}
 function cxMng(){var h='<div class="box"><h3>Add a project</h3><label class="fl" for="cx_t">Project title</label><input id="cx_t" maxlength="80" value="'+esc(cxF.title)+'" placeholder="e.g. Example Protocol"><label class="fl" for="cx_l">Referral link</label><input id="cx_l" type="url" inputmode="url" value="'+esc(cxF.link)+'" placeholder="Paste your referral link"><div class="cxpv" id="cx_pv"></div><label class="fl" for="cx_i">Image URL (optional, for Telegram Mini Apps or if the logo fails)</label><input id="cx_i" type="url" value="'+esc(cxF.img)+'" placeholder="https://…/logo.png"><div class="act2" style="margin:10px 0 0"><div style="flex:1"><label class="fl">Status</label><div class="cxseg">'+['published','unpublished'].map(function(v){return'<button data-cx="seg" data-g="status" data-v="'+v+'" class="'+(cxF.status==v?'on':'')+'">'+v[0].toUpperCase()+v.slice(1)+'</button>'}).join('')+'</div></div><div style="flex:1"><label class="fl">Trend</label><div class="cxseg">'+['up','down'].map(function(v){return'<button data-cx="seg" data-g="trend" data-v="'+v+'" class="'+(cxF.trend==v?'on':'')+'">'+(v=='up'?'▲ Up':'▼ Down')+'</button>'}).join('')+'</div></div></div><button class="btn b1 save" data-cx="add">Add project</button></div><h4>All projects ('+CX.projects.length+')</h4>';
 return h+(CX.projects.length?CX.projects.map(function(p){return'<div class="cxr">'+cxLg(p).replace('class="cxl"','class="cxl"')+'<div><b>'+esc(p.title)+'</b><small>'+esc(cxDom(p.referral_link))+'</small></div><div class="ctl"><label>Published <button class="sw'+(p.status=='published'?' on':'')+'" data-cx="tst" data-id="'+p.id+'" role="switch" aria-checked="'+(p.status=='published')+'" aria-label="Published"></button></label><label>Trend '+cxTr(p)+' <button class="sw'+(p.trend=='up'?' on':'')+'" data-cx="ttr" data-id="'+p.id+'" role="switch" aria-checked="'+(p.trend=='up')+'" aria-label="Trend up"></button></label><button class="mini" data-cx="end" data-id="'+p.id+'">'+(p.status=='ended'?'Reopen':'Mark ended')+'</button><button class="mini" data-cx="del" data-id="'+p.id+'">Delete</button></div></div>'}).join(''):'<p class="note">No projects yet. Add the first one above.</p>')}
 function cxR(){if(CX.u!=U){CX.u=U;CX.loaded=0;CX.joined={};CX.projects=[];CX.view='hub'}if(!CX.loaded&&!CX.busy)cxRefresh();
-var own=isOwner(),jn=CX.projects.filter(function(p){return CX.joined[p.id]}),pb=CX.projects.filter(function(p){return p.status!='unpublished'||CX.joined[p.id]||own});if(CX.view=='mng'&&!own)CX.view='hub';
+var own=isOwner(),jn=CX.projects.filter(function(p){return CX.joined[p.id]});if(CX.view=='mng'&&!own)CX.view='hub';
 var h='<div class="cx"><h4 style="margin-top:6px">Airdrops &amp; Crypto Hub</h4><div class="pills">'+[['hub','Hub'],['my','My joined ('+jn.length+')']].concat(own?[['mng','Manage']]:[]).map(function(x){return'<button data-cx="view" data-v="'+x[0]+'" class="'+(CX.view==x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div>';
 if(!CX.loaded)return h+'<p class="note">Loading…</p></div>';
-if(CX.view=='hub')h+=pb.length?'<div class="cxg">'+pb.map(cxCard).join('')+'</div>':'<p class="note">No projects yet.'+(own?' Open Manage to add one.':' Check back soon.')+'</p>';
-else if(CX.view=='my')h+=jn.length?'<div class="cxg">'+jn.map(function(p){return'<div class="cxc"><div class="cxh">'+cxLg(p)+'<div class="cxn">'+esc(p.title)+'</div></div><div class="cxb">'+cxBadge(p)+cxTr(p)+'</div><div class="cxa"><button class="btn b2" data-cx="open" data-id="'+p.id+'">Open</button></div></div>'}).join('')+'</div>':'<p class="note">You have not joined any project yet. Tap <b>I Have Joined</b> on a card in the Hub to track it here.</p>';
+if(CX.view!='mng')h+='<input id="cx_q" type="search" enterkeyhint="search" autocomplete="off" placeholder="Search '+(CX.view=='my'?'your joined':'all')+' projects…" aria-label="Search projects" value="'+esc(CX.q)+'"><div id="cx_list">'+cxList()+'</div>';
 else h+=cxMng();
 h+='<p class="note" style="margin-top:14px">'+(CX.mode=='cloud'?'Synced to the cloud.':'Saved on this device only.')+(CX.note?' '+esc(CX.note):'')+(CX.mode=='local'&&own?' To share projects with every user, add your Supabase URL and anon key to <b>MP</b> in the page code and run <b>crypto_module.sql</b>.':'')+'</p><p class="note">Airdrops and referral programmes carry risk. Never share your seed phrase, and only invest what you can afford to lose.</p></div>';
 if(CX.view=='mng')setTimeout(cxPv,0);return h}
@@ -1540,8 +1552,9 @@ async function cxAct(b){var a=b.dataset.cx,id=b.dataset.id,p=CX.projects.find(fu
 if(ow.indexOf(a)>-1&&!isOwner()){toast('Owners only');return}
 try{if(a=='view'){cxKeep();CX.view=b.dataset.v;pfR()}
 else if(a=='seg'){cxF[b.dataset.g]=b.dataset.v;b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x==b)})}
+else if(a=='nav'){var s=$('cx_s');if(s&&s.firstElementChild)s.scrollBy({left:b.dataset.d*(s.firstElementChild.offsetWidth+12),behavior:'smooth'})}
 else if(a=='open'){var u=p&&cxUrl(p.referral_link);if(u)window.open(u,'_blank','noopener,noreferrer');else toast('This project has no valid link')}
-else if(a=='joined'){if(!p||CX.joined[id])return;b.disabled=true;if(CX.mode=='cloud'){var r=await CX.sb.from('user_participations').insert({project_id:id});if(r.error&&r.error.code!='23505'){b.disabled=false;toast('Could not save: '+r.error.message);return}}else{var l=ld('mu_cx_joined_'+U,[]);l.push(id);sv('mu_cx_joined_'+U,l)}CX.joined[id]=1;log('Joined '+p.title);toast('Added to My joined projects');pfR()}
+else if(a=='joined'){if(!p||CX.joined[id])return;b.disabled=true;if(CX.mode=='cloud'){var r=await CX.sb.from('user_participations').insert({project_id:id});if(r.error&&r.error.code!='23505'){b.disabled=false;toast('Could not save: '+r.error.message);return}}else{var l=ld('mu_cx_joined_'+U,[]);l.push(id);sv('mu_cx_joined_'+U,l)}CX.joined[id]=1;b.textContent='✓ Joined';var pl=document.querySelector('.cx .pills button[data-v=my]');if(pl)pl.textContent='My joined ('+Object.keys(CX.joined).length+')';log('Joined '+p.title);toast('Added to My joined projects')}
 else if(a=='add'){cxKeep();var t=cxF.title.trim(),l2=cxUrl(cxF.link),im=cxF.img.trim();if(!t||!l2){toast('Enter a title and a valid referral link');return}if(im&&!/^https?:\/\//i.test(im)){toast('The image URL must start with https://');return}
 var rec={title:t,referral_link:l2,logo_url:im||'https://icon.horse/icon/'+cxDom(l2),status:cxF.status,trend:cxF.trend};
 if(CX.mode=='cloud'){var q=await CX.sb.from('crypto_projects').insert(rec).select().single();if(q.error){toast(/row-level|permission/i.test(q.error.message)?'Admins only':'Could not save: '+q.error.message);return}CX.projects.unshift(q.data)}else{rec.id='loc-'+Math.random().toString(36).slice(2,9);rec.created_at=new Date().toISOString();CX.projects.unshift(rec);sv('mu_cx_projects',CX.projects)}
@@ -1553,6 +1566,8 @@ else if(a=='del'){if(!confirm('Delete "'+p.title+'" for everyone?'))return;if(CX
 catch(e){toast('Something went wrong: '+(e.message||e))}}
 PG.addEventListener('error',function(e){var i=e.target;if(!i||!i.classList||!i.classList.contains('cxl')||i.tagName!='IMG')return;var d=i.dataset.d;if(d&&!i.dataset.st){i.dataset.st=1;i.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128'}else{var w=document.createElement('div');w.innerHTML=cxTile(i.dataset.n);i.replaceWith(w.firstChild)}},true);
 PG.addEventListener('input',function(e){if(e.target.id=='cx_l'||e.target.id=='cx_i'||e.target.id=='cx_t')cxPv()});
+PG.addEventListener('input',function(e){if(e.target.id=='cx_q'){CX.q=e.target.value;cxFill()}});
+PG.addEventListener('scroll',function(e){var s=e.target;if(!s||s.id!='cx_s'||!s.firstElementChild)return;var i=Math.round(s.scrollLeft/(s.firstElementChild.offsetWidth+12))+1,c=$('cx_c');if(c)c.textContent=Math.min(i,s.children.length)+' of '+s.children.length+' · swipe ← →'},true);
 /* ===== v10: LETTERS, FORMS, PAYMENTS ===== */
 GR.flow={single:0};
 var ftb='l',flCur=null,flScan=null,FI={},fPrev='hero',KINDS=['Partnership','Website or app request','Meeting request','Payment or invoice','General letter'];
