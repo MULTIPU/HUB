@@ -418,6 +418,9 @@ html.nothome #hero{display:none!important}
 .cxi{--ch:36.8px;position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:34px 28px 30px;background:var(--parch2);clip-path:polygon(var(--ch) 0,calc(100% - var(--ch)) 0,100% var(--ch),100% calc(100% - var(--ch)),calc(100% - var(--ch)) 100%,var(--ch) 100%,0 calc(100% - var(--ch)),0 var(--ch))}
 .cxi .cxn{font-size:19px}.cxi .cxb{justify-content:center}.cxi .cxa{width:100%;margin-top:auto}
 .cxnw{position:absolute;top:9px;left:50%;transform:translateX(-50%);background:#d6407f;color:#fff;font:800 11px system-ui,sans-serif;padding:3px 10px;border-radius:10px}
+
+.cxhome{display:flex;align-items:center;gap:12px;margin:10px auto 14px;padding:12px 18px;border:0;cursor:pointer;color:#fff;text-align:left;background:linear-gradient(135deg,#d4af37,#d6407f 55%,#7b3fe4);clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 16px,100% calc(100% - 16px),calc(100% - 16px) 100%,16px 100%,0 calc(100% - 16px),0 16px)}
+.cxhome b{display:block;font:700 15px system-ui,sans-serif}.cxhome small{font:12px system-ui,sans-serif;opacity:.92}
 /* ===== v10: LETTERS, FORMS, PAYMENTS ===== */
 .pfpage,.flpage{background:var(--parch2);border:2px solid var(--gold);border-radius:16px;margin:10px auto!important;padding:18px 16px!important}
 .flpage{max-width:820px;min-height:70vh}.flpage .t{margin-bottom:10px}
@@ -1428,7 +1431,7 @@ function pfLv(p){return p>=100?'Complete':p>=60?'Pro':p>=30?'Rising':'Starter'}
 function pfOv(d,p){var it=pfItems(d),nx=it.filter(function(x){return!x[1]})[0],ap=mineAp().length,act=ld('mu_act_'+U,[]),sv2=savedL().length,by=bought().length,u=ld('mu_users',{})[U]||{};
 var h=nx?'<div class="pfn"><div><b>Next step</b><span>'+nx[0]+'. It takes under a minute.</span></div><button class="btn b1" data-pf="fix" data-k="'+nx[2]+'">Do it</button></div>':'<div class="pfn ok2"><div><b>Profile complete</b><span>Everything is set up. Nice work.</span></div></div>';
 h+='<div class="pfs4"><div><b>'+sv2+'</b>Saved</div><div><b>'+by+'</b>Purchases</div><div><b>'+ap+'</b>Bookings</div><div><b>'+act.length+'</b>Actions</div></div>';
-h+='<h4>Quick actions</h4><div class="pfq"><button data-pf="go" data-k="p">📅 Book an appointment</button><button data-pf="go" data-k="m">✉️ Message the team</button><button data-pf="go" data-k="a">✨ Ask AURA</button><button data-pf="go" data-k="t">🧩 Browse templates</button><button data-pf="go" data-k="f">📄 Letters and forms</button><button data-pf="go" data-k="y">💳 Payments</button></div>';
+h+='<h4>Quick actions</h4><div class="pfq"><button data-pf="go" data-k="p">📅 Book an appointment</button><button data-pf="go" data-k="m">✉️ Message the team</button><button data-pf="go" data-k="a">✨ Ask AURA</button><button data-pf="go" data-k="t">🧩 Browse templates</button><button data-pf="go" data-k="f">📄 Letters and forms</button><button data-pf="go" data-k="y">💳 Payments</button><button data-pf="go" data-k="x">🪙 Airdrops &amp; Crypto Hub</button></div>';
 h+='<h4>Profile checklist · '+p+'%</h4>'+it.map(function(x){return'<button class="pfk'+(x[1]?' done':'')+'" data-pf="fix" data-k="'+x[2]+'"><i>'+(x[1]?'✓':'+')+'</i>'+x[0]+'</button>'}).join('');
 var cp=[['Browse and download free templates',1],['Save favourites',1],['Book appointments',1],['Get instant quotes',1],['Ask AURA, the assistant',1],['Report issues',1],['Upload templates (Staff)',isAdm()],['Post partner websites (Staff)',isAdm()],['Add software staff (Owner)',isOwner()]],n=cp.filter(function(x){return x[1]}).length;
 h+='<h4>What you can do · '+n+' of '+cp.length+'</h4><div class="pfcp">'+cp.map(function(x){return'<div class="'+(x[1]?'y':'l')+'">'+x[0]+'</div>'}).join('')+'</div>';
@@ -1449,7 +1452,7 @@ return'<h4>Appearance</h4><div class="act2" style="margin:0">'+['light','dark','
 +'<h4>Notifications</h4><label class="ck"><input type="checkbox" data-nt="em"'+(nt.em?' checked':'')+'> Email me about my quotes and orders</label><label class="ck"><input type="checkbox" data-nt="ap"'+(nt.ap?' checked':'')+'> Remind me before appointments</label><label class="ck"><input type="checkbox" data-nt="nw"'+(nt.nw?' checked':'')+'> Send me new templates and offers</label>'
 +'<h4>Security</h4><div class="act2" style="margin:0"><button class="btn b2" data-pf="bio">'+(u.cred?'Fingerprint or face unlock is on':'Turn on fingerprint or face unlock')+'</button></div><p class="note">Signed in as '+esc(U)+'.</p>'
 +'<h4>Your data</h4><div class="act2" style="margin:0"><button class="btn b2" data-pf="exp">Download my data</button><button class="btn b2" data-pf="ch">Clear history</button></div>'
-+'<h4>Account</h4><div class="act2" style="margin:0"><button class="btn b1" data-pf="out">Log out</button></div><div class="pfdz"><b class="note">Delete account</b><p class="note" style="margin:4px 0 8px">Removes your profile, favourites, history and sign-in from this device. This cannot be undone.</p><button class="btn b2" style="background:#c62d42;color:#fff" data-pf="del">Delete my account</button></div>'}
++'<h4>Account</h4><div class="act2" style="margin:0"><button class="btn b1" data-pf="out">Log out</button></div><div class="pfdz"><b class="note">Delete account</b><p class="note" style="margin:4px 0 8px">Removes your profile, favourites, history and sign-in from this device. This cannot be undone.</p><button class="btn b2" style="background:#c62d42;color:#fff" data-pf="del">Delete my account</button></div><p class="note" style="margin-top:14px">Site version 12: profile page, letters and forms, Airdrops &amp; Crypto Hub</p>'}
 function pfR(){if(!U)return;var d=pfd(),p=pfPct(d),C=2*Math.PI*46;
 $('pfm').innerHTML='<div class="pfh"><div class="pfr"><svg viewBox="0 0 104 104" width="104" height="104"><circle class="tr" cx="52" cy="52" r="46"/><circle class="pg2" cx="52" cy="52" r="46" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+C.toFixed(1)+'" data-off="'+(C*(1-p/100)).toFixed(1)+'"/></svg><div class="pfa">'+pfAv(d)+'</div><div class="pfp">'+p+'%</div></div><div class="pfi"><h3>'+esc(pfNm(d))+'</h3><p>'+esc(d.t&&d.o?d.t+' at '+d.o:d.t||d.o||U)+'</p><span class="chip">'+role()+'</span> <span class="chip">'+pfLv(p)+'</span>'+(ADMINS.indexOf(U)>-1&&role()=='Member'?'<p class="note" style="margin-top:6px">Owner email detected. Sign in with Google to unlock owner powers.</p>':'')+'</div></div>'
 +(d.b?'<p class="pfm" style="margin:0 0 8px;font:14px system-ui,sans-serif">'+esc(d.b)+'</p>':'')
@@ -1487,7 +1490,7 @@ if(!d.pf)return;var a=d.pf,ow=['appr','deny','rmm','addm','ed','bn','bk','pub','
 if(ow.indexOf(a)>-1&&!isOwner()){toast('Owners only');return}
 if(a=='tab'){pft=k;pfR();scrollTo({top:0,behavior:'smooth'})}
 else if(a=='fix'){if(k=='sec'){$('bio').onclick();setTimeout(pfRo,1500);setTimeout(pfRo,4500)}else if(k=='sv'){openSheet('c');toast('Tap ☆ next to anything to save it')}else{pft='e';pfR();var el=$(k=='img'?'pf_f':'pf_'+k);if(k=='img')toast('Tap Upload photo');else if(el){el.scrollIntoView({block:'center',behavior:'smooth'});setTimeout(function(){el.focus({preventScroll:true})},350)}}}
-else if(a=='go'){if(k=='p')openSet('p');else if(k=='m')openContact();else if(k=='a')auraOpen();else if(k=='t')mpGo('templates');else if(k=='r')openSet('h');else if(k=='f'){ftb='l';mpGo('flowPage')}else if(k=='y'){ftb='y';mpGo('flowPage')}}
+else if(a=='go'){if(k=='p')openSet('p');else if(k=='m')openContact();else if(k=='a')auraOpen();else if(k=='t')mpGo('templates');else if(k=='r')openSet('h');else if(k=='f'){ftb='l';mpGo('flowPage')}else if(k=='y'){ftb='y';mpGo('flowPage')}else if(k=='x'){pft='c';pfR();scrollTo({top:0,behavior:'smooth'})}}
 else if(a=='save')pfSave();
 else if(a=='ph')$('pf_f').click();
 else if(a=='rm'){var q=pfd();q.img='';sv('mu_pf_'+U,q);pfR()}
@@ -1568,6 +1571,11 @@ PG.addEventListener('error',function(e){var i=e.target;if(!i||!i.classList||!i.c
 PG.addEventListener('input',function(e){if(e.target.id=='cx_l'||e.target.id=='cx_i'||e.target.id=='cx_t')cxPv()});
 PG.addEventListener('input',function(e){if(e.target.id=='cx_q'){CX.q=e.target.value;cxFill()}});
 PG.addEventListener('scroll',function(e){var s=e.target;if(!s||s.id!='cx_s'||!s.firstElementChild)return;var i=Math.round(s.scrollLeft/(s.firstElementChild.offsetWidth+12))+1,c=$('cx_c');if(c)c.textContent=Math.min(i,s.children.length)+' of '+s.children.length+' · swipe ← →'},true);
+
+/* entry points: Contents menu + home page button */
+CT.splice(3,0,['Airdrops & crypto',[['cxHub','Airdrops & Crypto Hub','Octagon cards of airdrop and referral projects. Swipe, search and track the ones you joined.']]]);
+var _g4=window.mpGo;window.mpGo=function(id){if(id=='cxHub'){U?pfOpen('c'):openAuth();return}_g4(id)};
+(function(){var s=document.querySelector('#cats .sub');if(!s||$('cxHome'))return;var b=document.createElement('button');b.id='cxHome';b.className='cxhome';b.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polygon points="8,2 16,2 22,8 22,16 16,22 8,22 2,16 2,8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v10M9 10l3-3 3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><b>Airdrops &amp; Crypto Hub</b><small>Swipe octagon cards · join · track</small></span>';b.onclick=function(){U?pfOpen('c'):openAuth()};s.insertAdjacentElement('afterend',b)})();
 /* ===== v10: LETTERS, FORMS, PAYMENTS ===== */
 GR.flow={single:0};
 var ftb='l',flCur=null,flScan=null,FI={},fPrev='hero',KINDS=['Partnership','Website or app request','Meeting request','Payment or invoice','General letter'];
