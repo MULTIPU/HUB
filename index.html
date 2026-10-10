@@ -442,6 +442,60 @@ html.nothome #hero{display:none!important}
 #pr2{display:none}
 @media print{#pr2{display:block!important;position:absolute;left:0;top:0;width:100%}#pr2,#pr2 *{visibility:visible}}
 .pfbar .btn{white-space:nowrap}.pfpage,.flpage{padding-bottom:96px!important}
+
+/* ===== v13: PROFILE POP-UP OVERLAY + HOME OCTAGON CRYPTO ===== */
+#profilePage{position:fixed;inset:0;z-index:66;overflow-y:auto;overscroll-behavior:contain;color:var(--ink);
+ background:radial-gradient(circle at 20% 0%,var(--parch2),var(--parch) 70%);
+ clip-path:circle(0px at var(--ox,50%) var(--oy,94%));visibility:hidden;pointer-events:none;
+ transition:clip-path .42s cubic-bezier(.5,0,.75,0),visibility 0s linear .42s}
+#profilePage.on{clip-path:circle(var(--r,150vmax) at var(--ox,50%) var(--oy,94%));visibility:visible;pointer-events:auto;
+ transition:clip-path .62s cubic-bezier(.16,.84,.24,1),visibility 0s}
+#profilePage .pfwrap{max-width:760px;margin:0 auto;padding:0 16px calc(130px + env(safe-area-inset-bottom,0px))}
+#profilePage .pfbar{position:sticky;top:0;z-index:4;margin:0 -16px 10px;padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px;background:color-mix(in srgb,var(--parch2) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+#profilePage .pfbar b{flex:1;font-size:19px}
+#profilePage.on #pfm>*{animation:pfin .55s cubic-bezier(.2,.8,.2,1) both}
+#profilePage.on #pfm>*:nth-child(2){animation-delay:.07s}#profilePage.on #pfm>*:nth-child(3){animation-delay:.12s}#profilePage.on #pfm>*:nth-child(4){animation-delay:.17s}
+@keyframes pfin{from{opacity:0;transform:translateY(16px)}}
+html.pfopen,html.pfopen body{overflow:hidden}
+#profilePage .pfh{background:linear-gradient(135deg,#2A085C 0%,#7b3fe4 58%,#d6407f 100%);color:#fff;border-radius:22px;padding:18px;margin-bottom:12px;box-shadow:0 10px 28px rgba(75,0,130,.35);position:relative;overflow:hidden}
+#profilePage .pfh:after{content:"";position:absolute;right:-46px;top:-46px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.12);pointer-events:none}
+#profilePage .pfi h3,#profilePage .pfi p{color:#fff}
+#profilePage .pfi .chip{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.55);color:#fff}
+#profilePage .pfr .tr{stroke:rgba(255,255,255,.3)}
+#profilePage .pfp{background:#fff;color:#2A085C}
+.pfs4{grid-template-columns:repeat(3,1fr)!important}
+.cxr2{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font:13px system-ui,sans-serif}
+.cxr2 .oct{--s:42px}.cxr2 .oct .cxl{font-size:17px;padding:11%}.cxr2 b{flex:1;min-width:0;overflow-wrap:anywhere;font:700 14px system-ui,sans-serif}
+.cxr2 .mini,.cxown{padding:7px 12px;border-radius:10px;border:1px solid var(--gold);background:transparent;color:var(--ink);font:700 12px system-ui,sans-serif;cursor:pointer}
+@media(prefers-reduced-motion:reduce){#profilePage,#profilePage.on{transition:none}#profilePage.on #pfm>*{animation:none}}
+.calm #profilePage,.calm #profilePage.on{transition:none}.calm #profilePage.on #pfm>*{animation:none}
+/* header name chip */
+#hl{display:inline-flex;align-items:center}
+.hav{display:inline-grid;width:22px;height:22px;border-radius:50%;overflow:hidden;margin-right:7px;border:1.5px solid var(--gold2);flex:none}
+.hav>span,.hav img{width:100%;height:100%;display:grid;place-items:center;object-fit:cover;font:800 9px system-ui,sans-serif;color:#fff}
+/* home crypto section */
+#cxSec{--cw:min(78vw,320px)}
+#cxSec .gt{background-image:linear-gradient(135deg,#d4af37,#d6407f 55%,#7b3fe4)}
+.lock #cxSec input{pointer-events:auto}
+.cxtool{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 0 4px}
+.cxtool .pills{margin:0;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;max-width:100%}.cxtool .pills::-webkit-scrollbar{display:none}
+.cxtool .pills button{white-space:nowrap}
+#cxSec #cx_q{max-width:420px;display:block;margin:6px auto 4px}
+#cxSec .cxs2{padding:12px calc(50% - var(--cw)/2) 16px;gap:14px;cursor:grab}
+#cxSec .cxs2.drag{scroll-snap-type:none;cursor:grabbing;user-select:none}
+#cxSec .cxc{--ch:54px;flex:0 0 var(--cw);max-width:none;min-height:410px;transform:scale(var(--sc,1));opacity:var(--op,1);transition:transform .2s,opacity .2s}
+#cxSec .cxi{--ch:52.7px;color:var(--ink);padding:44px 30px 36px;gap:9px}
+#cxSec .cxc.jn{background:linear-gradient(135deg,#1f8a5b,#0f8b8d 50%,#d4af37)}
+#cxSec .cxc.en{filter:grayscale(.65)}
+.cxjn{position:absolute;top:10px;left:50%;transform:translateX(-50%);background:#1f8a5b;color:#fff;font:800 11px system-ui,sans-serif;padding:3px 10px;border-radius:10px;letter-spacing:.06em}
+.cxm{font:11.5px system-ui,sans-serif;color:var(--mut);margin:0}
+.cxa2{display:flex;gap:6px;justify-content:center;margin-top:2px}
+.cxa2 button{padding:5px 12px;border-radius:14px;border:1px solid var(--line);background:transparent;color:var(--ink);font:600 11.5px system-ui,sans-serif;cursor:pointer}
+.cxdots{display:flex;gap:6px;justify-content:center;min-height:8px;margin-bottom:4px}.cxdots i{width:7px;height:7px;background:var(--line);clip-path:polygon(29.3% 0,70.7% 0,100% 29.3%,100% 70.7%,70.7% 100%,29.3% 100%,0 70.7%,0 29.3%);transition:.2s}.cxdots i.on{background:var(--gold);transform:scale(1.5)}
+.cxnav{max-width:420px;margin:0 auto}.cxnav>div{text-align:center}
+.cxr .ctl{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font:12px system-ui,sans-serif}
+#cxSec .box{margin-top:12px}
+@media(prefers-reduced-motion:reduce){#cxSec .cxc{transition:none}}
 </style>
 </head>
 <body>
@@ -639,6 +693,7 @@ html.nothome #hero{display:none!important}
 <div class="btns"><a class="btn b1" href="#proposal">GET A PROPOSAL</a><a class="btn b2" href="#community">EXPLORE PORTFOLIO</a><a class="btn b1" href="#join">JOIN AS ORGANIZATION</a></div>
 <div class="term mono">&lt;multipu/multipleuniverse-exec.exe&gt;<br/><i>MULTIPLE UNIVERSE</i><br/>AUTOMATING EXCELLENCE.</div>
 </section>
+<section class="pad pg" data-g="home" data-free id="cxSec"><h2 class="t gt">Airdrops &amp; Crypto</h2><p class="sub">Swipe right to left through the octagons. Tap one to join.</p><div id="cxBody"></div></section>
 <section class="pad pg" data-g="home" id="cats"><h2 class="t gt">Choose Your Sector</h2><p class="sub">Swipe to explore — no endless scrolling.</p>
 <div class="act2" data-free="" id="cc" style="margin:0 0 10px;flex-wrap:nowrap;overflow-x:auto"></div><div class="cats" id="cs"></div></section>
 <section class="pad pg" data-g="tools" id="split">
@@ -740,7 +795,7 @@ html.nothome #hero{display:none!important}
 <div class="box adm" style="margin-top:14px"><h3>Admin tools</h3>
 <div class="own"><b class="note">Add software staff (can upload templates)</b><input id="sf" placeholder="staff@gmail.com" type="email"/><button class="btn b2" id="sfb">ADD STAFF</button><p class="note" id="sfl"></p></div>
 <b class="note">Post a partner website</b><input id="sn" placeholder="Website / partner name"/><input id="sui" placeholder="https://their-site.com"/><button class="btn b1" id="sb">POST WEBSITE</button></div></section>
-<section class="pad pg pfpage" data-g="profile" id="profilePage"><div class="pfbar"><button class="btn b2" id="pfback">← Back</button><b>My profile</b></div><div id="pfm"></div></section>
+<section id="profilePage" role="dialog" aria-modal="true" aria-label="My profile" aria-hidden="true"><div class="pfwrap"><div class="pfbar"><button class="btn b2" id="pfback" type="button">✕ Close</button><b>My profile</b></div><div id="pfm"></div></div></section>
 <svg height="0" width="0" style="position:absolute"><defs><linearGradient id="pfgr" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#d4af37"/><stop offset=".5" stop-color="#d6407f"/><stop offset="1" stop-color="#7b3fe4"/></linearGradient></defs></svg>
 <section class="pad pg flpage" data-g="flow" id="flowPage"><div class="pfbar"><button class="btn b2" id="flback">← Back</button><b>Letters, forms and payments</b></div><div class="flm" id="flowM"></div></section>
 <div id="pr2" aria-hidden="true"></div>
@@ -1408,9 +1463,9 @@ $('cm_s').disabled=true;sendTeam('Message from '+n+' — '+$('cm_t').value,{name
 var cf=$('contact');if(cf){var cb=document.createElement('button');cb.className='btn b1';cb.setAttribute('data-free','');cb.textContent='MESSAGE US';cb.style.margin='10px 0 0';cb.onclick=function(){openContact()};cf.appendChild(cb)}
 var NS=[],bk=0,bl=0,_go=window.mpGo;
 window.mpGo=function(id){var c=pageNow();_go(id);var n=pageNow();if(!bk&&n!==c)NS.push(c)};
-function topOv(){var q=['#cmod.on','.mk-modal.on','#aura.on','#auth.on','.mod.on','#sheet.on'];for(var i=0;i<q.length;i++){var e=document.querySelector(q[i]);if(e)return e}return null}
+function topOv(){var q=['#cmod.on','.mk-modal.on','#aura.on','#auth.on','.mod.on','#sheet.on','#profilePage.on'];for(var i=0;i<q.length;i++){var e=document.querySelector(q[i]);if(e)return e}return null}
 function goBack(){if(document.body.classList.contains('ed'))return;var n=Date.now();if(n-bl<450)return;bl=n;if(window.getSelection)getSelection().removeAllRanges();
-var o=topOv();if(o){if(o.id=='sheet'){if(tab=='set'&&sxt!='g'){sxt='g';rs()}else $('sclose').click()}else if(o.id=='aura'){ap.classList.remove('on');fab.style.display=''}else if(o.id=='auth')$('ax').click();else o.classList.remove('on');return}
+var o=topOv();if(o){if(o.id=='sheet'){if(tab=='set'&&sxt!='g'){sxt='g';rs()}else $('sclose').click()}else if(o.id=='aura'){ap.classList.remove('on');fab.style.display=''}else if(o.id=='auth')$('ax').click();else if(o.id=='profilePage')pfBack();else o.classList.remove('on');return}
 if(NS.length){bk=1;mpGo(NS.pop());bk=0;toast('◀ Back');return}
 if(pageNow()!='hero'){bk=1;mpGo('hero');bk=0;toast('◀ Home');return}
 if(scrollY>80){scrollTo({top:0,behavior:'smooth'});return}toast('You are at the start')}
@@ -1430,8 +1485,8 @@ function pfPct(d){var i=pfItems(d);return Math.round(i.filter(function(x){return
 function pfLv(p){return p>=100?'Complete':p>=60?'Pro':p>=30?'Rising':'Starter'}
 function pfOv(d,p){var it=pfItems(d),nx=it.filter(function(x){return!x[1]})[0],ap=mineAp().length,act=ld('mu_act_'+U,[]),sv2=savedL().length,by=bought().length,u=ld('mu_users',{})[U]||{};
 var h=nx?'<div class="pfn"><div><b>Next step</b><span>'+nx[0]+'. It takes under a minute.</span></div><button class="btn b1" data-pf="fix" data-k="'+nx[2]+'">Do it</button></div>':'<div class="pfn ok2"><div><b>Profile complete</b><span>Everything is set up. Nice work.</span></div></div>';
-h+='<div class="pfs4"><div><b>'+sv2+'</b>Saved</div><div><b>'+by+'</b>Purchases</div><div><b>'+ap+'</b>Bookings</div><div><b>'+act.length+'</b>Actions</div></div>';
-h+='<h4>Quick actions</h4><div class="pfq"><button data-pf="go" data-k="p">📅 Book an appointment</button><button data-pf="go" data-k="m">✉️ Message the team</button><button data-pf="go" data-k="a">✨ Ask AURA</button><button data-pf="go" data-k="t">🧩 Browse templates</button><button data-pf="go" data-k="f">📄 Letters and forms</button><button data-pf="go" data-k="y">💳 Payments</button><button data-pf="go" data-k="x">🪙 Airdrops &amp; Crypto Hub</button></div>';
+h+='<div class="pfs4"><div><b>'+sv2+'</b>Saved</div><div><b>'+by+'</b>Purchases</div><div><b>'+ap+'</b>Bookings</div><div><b>'+act.length+'</b>Actions</div><div><b>'+Object.keys(CX.joined||{}).length+'</b>Airdrops</div><div><b style="font-size:16px;line-height:1.55">'+pfLv(p)+'</b>Level</div></div>';
+h+=pfAir();h+='<h4>Quick actions</h4><div class="pfq"><button data-pf="go" data-k="p">📅 Book an appointment</button><button data-pf="go" data-k="m">✉️ Message the team</button><button data-pf="go" data-k="a">✨ Ask AURA</button><button data-pf="go" data-k="t">🧩 Browse templates</button><button data-pf="go" data-k="f">📄 Letters and forms</button><button data-pf="go" data-k="y">💳 Payments</button><button data-pf="go" data-k="x">🪙 Airdrops on Home</button></div>';
 h+='<h4>Profile checklist · '+p+'%</h4>'+it.map(function(x){return'<button class="pfk'+(x[1]?' done':'')+'" data-pf="fix" data-k="'+x[2]+'"><i>'+(x[1]?'✓':'+')+'</i>'+x[0]+'</button>'}).join('');
 var cp=[['Browse and download free templates',1],['Save favourites',1],['Book appointments',1],['Get instant quotes',1],['Ask AURA, the assistant',1],['Report issues',1],['Upload templates (Staff)',isAdm()],['Post partner websites (Staff)',isAdm()],['Add software staff (Owner)',isOwner()]],n=cp.filter(function(x){return x[1]}).length;
 h+='<h4>What you can do · '+n+' of '+cp.length+'</h4><div class="pfcp">'+cp.map(function(x){return'<div class="'+(x[1]?'y':'l')+'">'+x[0]+'</div>'}).join('')+'</div>';
@@ -1456,7 +1511,7 @@ return'<h4>Appearance</h4><div class="act2" style="margin:0">'+['light','dark','
 function pfR(){if(!U)return;var d=pfd(),p=pfPct(d),C=2*Math.PI*46;
 $('pfm').innerHTML='<div class="pfh"><div class="pfr"><svg viewBox="0 0 104 104" width="104" height="104"><circle class="tr" cx="52" cy="52" r="46"/><circle class="pg2" cx="52" cy="52" r="46" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+C.toFixed(1)+'" data-off="'+(C*(1-p/100)).toFixed(1)+'"/></svg><div class="pfa">'+pfAv(d)+'</div><div class="pfp">'+p+'%</div></div><div class="pfi"><h3>'+esc(pfNm(d))+'</h3><p>'+esc(d.t&&d.o?d.t+' at '+d.o:d.t||d.o||U)+'</p><span class="chip">'+role()+'</span> <span class="chip">'+pfLv(p)+'</span>'+(ADMINS.indexOf(U)>-1&&role()=='Member'?'<p class="note" style="margin-top:6px">Owner email detected. Sign in with Google to unlock owner powers.</p>':'')+'</div></div>'
 +(d.b?'<p class="pfm" style="margin:0 0 8px;font:14px system-ui,sans-serif">'+esc(d.b)+'</p>':'')
-+'<div class="pft">'+[['o','Overview'],['e','Edit'],['s','Settings'],['c','Airdrops']].concat(isOwner()?[['w','Owner']]:[]).map(function(x){return'<button data-pf="tab" data-k="'+x[0]+'" class="'+(pft==x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div><div class="pfm">'+(pft=='o'?pfOv(d,p):pft=='e'?pfEd(d):pft=='w'?pfOw():pft=='c'?cxR():pfSet(d))+'</div>';
++'<div class="pft">'+[['o','Overview'],['e','Edit'],['s','Settings']].concat(isOwner()?[['w','Owner']]:[]).map(function(x){return'<button data-pf="tab" data-k="'+x[0]+'" class="'+(pft==x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div><div class="pfm">'+(pft=='o'?pfOv(d,p):pft=='e'?pfEd(d):pft=='w'?pfOw():pfSet(d))+'</div>';
 var c=$('pfm').querySelector('.pg2');if(c)requestAnimationFrame(function(){requestAnimationFrame(function(){c.style.strokeDashoffset=c.dataset.off})});
 var b=$('pf_b');if(b)b.oninput=function(){$('pf_bc').textContent=b.value.length+'/160'};
 var f=$('pf_f');if(f)f.onchange=pfPhoto}
@@ -1471,9 +1526,14 @@ h+='<label class="fl" for="pf_te">Add a worker directly</label><input id="pf_te"
 h+='<h4>Edit the website</h4><p class="note">Edit mode takes you to the main page. Tap any text to rewrite it and any picture to replace it.</p><div class="act2" style="margin:0"><button class="btn b1" data-pf="ed">'+(document.body.classList.contains('ed')?'Stop editing':'Start edit mode')+'</button></div><label class="fl" for="pf_bn">Announcement banner</label><input id="pf_bn" placeholder="Leave empty for no banner" value="'+esc(ld('mu_banner',''))+'"><div class="act2"><button class="btn b2" data-pf="bn">Save banner</button><button class="btn b2" data-pf="bk">Backup</button><button class="btn b2" data-pf="pub">Publish to all visitors</button><button class="btn b2" style="background:#c62d42;color:#fff" data-pf="rst">Reset edits</button></div>';
 h+='<h4>More owner tools</h4><div class="pfq"><button data-pf="own" data-k="c">🛠️ Full control centre</button><button data-pf="own" data-k="up">⬆️ Upload a template</button><button data-pf="own" data-k="portal">📊 Client portal</button><button data-pf="own" data-k="billing">💳 Billing</button></div>';return h}
 
-function pfOn(){return pageNow()=='profilePage'}
-function pfOpen(t){if(!U){openAuth('login');return}pft=t||'o';if(!pfOn())pfPrev=pageNow();$('sheet').classList.remove('on');pfR();bk=0;mpGo('profilePage');scrollTo(0,0);log('Opened profile')}
-function pfBack(){var p=pfPrev&&pfPrev!='profilePage'?pfPrev:'hero';bk=1;mpGo(p);bk=0}
+function pfOn(){return PG.classList.contains('on')}
+function pfZ(){var f=document.querySelector('.frame'),z=f?parseFloat(getComputedStyle(f).zoom):1;return z>0?z:1}
+function pfOrigin(el){var r=el.getBoundingClientRect(),W=innerWidth,Hh=innerHeight,z=pfZ(),x=Math.min(W,Math.max(0,r.left+r.width/2)),y=Math.min(Hh,Math.max(0,r.top+r.height/2));return{x:x/z,y:y/z,r:Math.ceil(Math.hypot(Math.max(x,W-x),Math.max(y,Hh-y))+10)/z}}
+function pfOpen(t,from){if(!U){openAuth('login');return}pft=t||'o';$('sheet').classList.remove('on');cxEnsure();pfR();
+var o=pfOrigin(from&&from.getBoundingClientRect?from:$('bp1'));PG.style.setProperty('--ox',o.x+'px');PG.style.setProperty('--oy',o.y+'px');PG.style.setProperty('--r',o.r+'px');
+PG.scrollTop=0;PG.setAttribute('aria-hidden','false');void PG.offsetWidth;PG.classList.add('on');document.documentElement.classList.add('pfopen');$('bp1').classList.add('pfon');log('Opened profile')}
+function pfBack(){if(!pfOn())return;var o=pfOrigin($('bp1'));PG.style.setProperty('--ox',o.x+'px');PG.style.setProperty('--oy',o.y+'px');
+PG.classList.remove('on');PG.setAttribute('aria-hidden','true');document.documentElement.classList.remove('pfopen');$('bp1').classList.remove('pfon')}
 function pfPhoto(){var f=this.files[0];if(!f)return;if(!/^image\//.test(f.type)){toast('Choose an image file');return}var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(im.width,im.height),cv=document.createElement('canvas');cv.width=cv.height=200;cv.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,200,200);var d=pfd();d.img=cv.toDataURL('image/jpeg',.82);if(!sv('mu_pf_'+U,d)){toast('Photo is too large to store here');return}toast('Photo updated');pfR()};im.onerror=function(){toast('That image could not be read')};im.src=rd.result};rd.readAsDataURL(f)}
 function pfExport(){var us=ld('mu_users',{}),u=Object.assign({},us[U]||{});delete u.h;delete u.s;var o={account:U,role:role(),account_record:u,profile:pfd(),saved:savedL(),history:ld('mu_hist_'+U,[]),activity:ld('mu_act_'+U,[]),purchases:bought(),appointments:mineAp()};var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o,null,2)],{type:'application/json'}));a.download='multipu-my-data.json';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);toast('Your data was downloaded')}
 function pfSave(){var d=pfd(),v=function(i){return $(i).value.trim()};d.n=v('pf_n');d.o=v('pf_o');d.t=v('pf_t');d.ph=v('pf_ph');d.b=v('pf_b').slice(0,160);if(d.ph&&!/^[+\d\s()-]{6,20}$/.test(d.ph)){toast('Enter a valid phone number, for example +234 801 234 5678');$('pf_ph').focus();return}if(!sv('mu_pf_'+U,d)){toast('Could not save. Browser storage is full or blocked');return}log('Updated profile');pft='o';pfR();scrollTo({top:0,behavior:'smooth'});toast('Profile saved')}
@@ -1490,7 +1550,7 @@ if(!d.pf)return;var a=d.pf,ow=['appr','deny','rmm','addm','ed','bn','bk','pub','
 if(ow.indexOf(a)>-1&&!isOwner()){toast('Owners only');return}
 if(a=='tab'){pft=k;pfR();scrollTo({top:0,behavior:'smooth'})}
 else if(a=='fix'){if(k=='sec'){$('bio').onclick();setTimeout(pfRo,1500);setTimeout(pfRo,4500)}else if(k=='sv'){openSheet('c');toast('Tap ☆ next to anything to save it')}else{pft='e';pfR();var el=$(k=='img'?'pf_f':'pf_'+k);if(k=='img')toast('Tap Upload photo');else if(el){el.scrollIntoView({block:'center',behavior:'smooth'});setTimeout(function(){el.focus({preventScroll:true})},350)}}}
-else if(a=='go'){if(k=='p')openSet('p');else if(k=='m')openContact();else if(k=='a')auraOpen();else if(k=='t')mpGo('templates');else if(k=='r')openSet('h');else if(k=='f'){ftb='l';mpGo('flowPage')}else if(k=='y'){ftb='y';mpGo('flowPage')}else if(k=='x'){pft='c';pfR();scrollTo({top:0,behavior:'smooth'})}}
+else if(a=='go'){if(k=='p')openSet('p');else if(k=='m')openContact();else if(k=='a')auraOpen();else if(k=='t')mpGo('templates');else if(k=='r')openSet('h');else if(k=='f'){ftb='l';mpGo('flowPage')}else if(k=='y'){ftb='y';mpGo('flowPage')}else if(k=='x'){mpGo('cxHub')}}
 else if(a=='save')pfSave();
 else if(a=='ph')$('pf_f').click();
 else if(a=='rm'){var q=pfd();q.img='';sv('mu_pf_'+U,q);pfR()}
@@ -1509,8 +1569,8 @@ else if(a=='bn'){sv('mu_banner',$('pf_bn').value.trim());mpApply();toast('Banner
 else if(a=='bk')HX.bk();else if(a=='pub')HX.pub();else if(a=='rst')HX.rst();
 else if(a=='own'){if(k=='c')openSet('c');else if(k=='up')goItem('up');else mpGo(k)}};
 function pfRo(){if(pfOn()&&pft!='e')pfR()}
-$('bp1').onclick=function(){if(!U){openAuth('login');return}pfOn()?pfBack():pfOpen('o')};
-$('hl').onclick=$('fg').onclick=function(){U?(pfOn()||pfOpen('o')):openAuth('login')};
+$('bp1').onclick=function(){if(!U){openAuth('login');return}pfOn()?pfBack():pfOpen('o',this)};
+$('hl').onclick=$('fg').onclick=function(){U?(pfOn()||pfOpen('o',this)):openAuth('login')};
 var _ui=ui;ui=function(){_ui();if(pfOn())U?pfR():pfBack()};
 var _g2=window.mpGo;window.mpGo=function(id){_g2(id);$('bp1').classList.toggle('pfon',pfOn());document.documentElement.classList.toggle('nothome',!!document.querySelector('.pg.show:not([data-g="home"])'))};
 window.mpProfile=pfOpen;
@@ -1530,52 +1590,79 @@ var sb=window.supabase.createClient(MP.supabaseUrl,MP.supabaseKey,{auth:{persist
 if(!s){var t=sessionStorage.getItem('mu_idt');if(!t){CX.note='Sign in with Google to sync with the cloud. Showing this device only.';return null}var r=await sb.auth.signInWithIdToken({provider:'google',token:t});if(r.error){CX.note='Cloud sign-in failed: '+r.error.message;return null}}
 CX.sb=sb;return sb}
 function cxLocal(){CX.mode='local';CX.projects=ld('mu_cx_projects',[]);CX.joined={};ld('mu_cx_joined_'+U,[]).forEach(function(i){CX.joined[i]=1})}
-async function cxRefresh(){CX.busy=1;CX.u=U;try{var sb=await cxSb();if(sb){var a=await sb.from('crypto_projects').select('*').order('created_at',{ascending:false}),b=await sb.from('user_participations').select('project_id');if(a.error||b.error)throw(a.error||b.error);CX.mode='cloud';CX.projects=a.data;CX.joined={};b.data.forEach(function(x){CX.joined[x.project_id]=1})}else cxLocal()}catch(e){CX.sb=null;CX.note='Cloud unavailable ('+(e.message||'error')+'). Showing this device only.';cxLocal()}CX.loaded=1;CX.busy=0;if(pfOn()&&pft=='c')pfR()}
-function cxKeep(){['title','link','img'].forEach(function(k){var e=$('cx_'+k[0]);if(e)cxF[k]=e.value})}
+async function cxRefresh(){CX.busy=1;CX.u=U;try{var sb=await cxSb();if(sb){var a=await sb.from('crypto_projects').select('*').order('created_at',{ascending:false}),b=await sb.from('user_participations').select('project_id');if(a.error||b.error)throw(a.error||b.error);CX.mode='cloud';CX.projects=a.data;CX.joined={};b.data.forEach(function(x){CX.joined[x.project_id]=1})}else cxLocal()}catch(e){CX.sb=null;CX.note='Cloud unavailable ('+(e.message||'error')+'). Showing this device only.';cxLocal()}CX.loaded=1;CX.busy=0;cxRe()}
+function cxKeep(){['title','link','img'].forEach(function(k){var e=$('cx_'+k[0]);if(e)cxF[k]=e.value});var d=$('cx_d');if(d)cxF.desc=d.value}
+function cxEnsure(){if(CX.u!=U){CX.u=U;CX.loaded=0;CX.joined={};CX.projects=[];CX.view='hub'}if(!CX.loaded&&!CX.busy)cxRefresh()}
+function cxRe(){var a=document.activeElement;if(a&&a.id=='cx_q')cxFill();else cxHomeR();if(pfOn()&&pft=='o')pfR()}
 function cxNew(p){return Date.now()-new Date(p.created_at||0)<6048e5}
-function cxCard(p,my){var jn=CX.joined[p.id];return'<div class="cxc"><div class="cxi">'+(cxNew(p)?'<span class="cxnw">NEW</span>':'')+cxLg(p)+'<div class="cxn">'+esc(p.title)+'</div><div class="cxb">'+cxBadge(p)+cxTr(p)+'</div>'+(p.description?'<p class="cxd">'+esc(p.description)+'</p>':'')+(my?'<div class="cxa"><button class="btn b2" data-cx="open" data-id="'+p.id+'">Open</button></div>':'<div class="cxa"><button class="btn b1" data-cx="open" data-id="'+p.id+'">Join Now</button><button class="btn b2" data-cx="joined" data-id="'+p.id+'"'+(jn?' disabled':'')+'>'+(jn?'✓ Joined':'I Have Joined')+'</button></div>')+'</div></div>'}
-function cxItems(){var q=(CX.q||'').trim().toLowerCase(),own=isOwner();return CX.projects.filter(function(p){return CX.view=='my'?CX.joined[p.id]:(p.status!='unpublished'||CX.joined[p.id]||own)}).filter(function(p){return!q||((p.title||'')+' '+(p.description||'')+' '+cxDom(p.referral_link)).toLowerCase().indexOf(q)>-1})}
-function cxList(){var a=cxItems();if(!a.length)return'<p class="note">'+(CX.q?'No project matches “'+esc(CX.q)+'”.':CX.view=='my'?'You have not joined any project yet. Tap <b>I Have Joined</b> on a card in the Hub to track it here.':'No projects yet.'+(isOwner()?' Open Manage to add one.':' Check back soon.'))+'</p>';
-return'<div class="cxs2" id="cx_s" tabindex="0" aria-label="Projects. Swipe left or right.">'+a.map(function(p){return cxCard(p,CX.view=='my')}).join('')+'</div><div class="cxnav"><button class="mini" data-cx="nav" data-d="-1" aria-label="Previous project">‹</button><span id="cx_c" class="note">1 of '+a.length+' · swipe ← →</span><button class="mini" data-cx="nav" data-d="1" aria-label="Next project">›</button></div>'}
-function cxFill(){var e=$('cx_list');if(e)e.innerHTML=cxList()}
-function cxMng(){var h='<div class="box"><h3>Add a project</h3><label class="fl" for="cx_t">Project title</label><input id="cx_t" maxlength="80" value="'+esc(cxF.title)+'" placeholder="e.g. Example Protocol"><label class="fl" for="cx_l">Referral link</label><input id="cx_l" type="url" inputmode="url" value="'+esc(cxF.link)+'" placeholder="Paste your referral link"><div class="cxpv" id="cx_pv"></div><label class="fl" for="cx_i">Image URL (optional, for Telegram Mini Apps or if the logo fails)</label><input id="cx_i" type="url" value="'+esc(cxF.img)+'" placeholder="https://…/logo.png"><div class="act2" style="margin:10px 0 0"><div style="flex:1"><label class="fl">Status</label><div class="cxseg">'+['published','unpublished'].map(function(v){return'<button data-cx="seg" data-g="status" data-v="'+v+'" class="'+(cxF.status==v?'on':'')+'">'+v[0].toUpperCase()+v.slice(1)+'</button>'}).join('')+'</div></div><div style="flex:1"><label class="fl">Trend</label><div class="cxseg">'+['up','down'].map(function(v){return'<button data-cx="seg" data-g="trend" data-v="'+v+'" class="'+(cxF.trend==v?'on':'')+'">'+(v=='up'?'▲ Up':'▼ Down')+'</button>'}).join('')+'</div></div></div><button class="btn b1 save" data-cx="add">Add project</button></div><h4>All projects ('+CX.projects.length+')</h4>';
-return h+(CX.projects.length?CX.projects.map(function(p){return'<div class="cxr">'+cxLg(p).replace('class="cxl"','class="cxl"')+'<div><b>'+esc(p.title)+'</b><small>'+esc(cxDom(p.referral_link))+'</small></div><div class="ctl"><label>Published <button class="sw'+(p.status=='published'?' on':'')+'" data-cx="tst" data-id="'+p.id+'" role="switch" aria-checked="'+(p.status=='published')+'" aria-label="Published"></button></label><label>Trend '+cxTr(p)+' <button class="sw'+(p.trend=='up'?' on':'')+'" data-cx="ttr" data-id="'+p.id+'" role="switch" aria-checked="'+(p.trend=='up')+'" aria-label="Trend up"></button></label><button class="mini" data-cx="end" data-id="'+p.id+'">'+(p.status=='ended'?'Reopen':'Mark ended')+'</button><button class="mini" data-cx="del" data-id="'+p.id+'">Delete</button></div></div>'}).join(''):'<p class="note">No projects yet. Add the first one above.</p>')}
-function cxR(){if(CX.u!=U){CX.u=U;CX.loaded=0;CX.joined={};CX.projects=[];CX.view='hub'}if(!CX.loaded&&!CX.busy)cxRefresh();
-var own=isOwner(),jn=CX.projects.filter(function(p){return CX.joined[p.id]});if(CX.view=='mng'&&!own)CX.view='hub';
-var h='<div class="cx"><h4 style="margin-top:6px">Airdrops &amp; Crypto Hub</h4><div class="pills">'+[['hub','Hub'],['my','My joined ('+jn.length+')']].concat(own?[['mng','Manage']]:[]).map(function(x){return'<button data-cx="view" data-v="'+x[0]+'" class="'+(CX.view==x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div>';
-if(!CX.loaded)return h+'<p class="note">Loading…</p></div>';
-if(CX.view!='mng')h+='<input id="cx_q" type="search" enterkeyhint="search" autocomplete="off" placeholder="Search '+(CX.view=='my'?'your joined':'all')+' projects…" aria-label="Search projects" value="'+esc(CX.q)+'"><div id="cx_list">'+cxList()+'</div>';
-else h+=cxMng();
-h+='<p class="note" style="margin-top:14px">'+(CX.mode=='cloud'?'Synced to the cloud.':'Saved on this device only.')+(CX.note?' '+esc(CX.note):'')+(CX.mode=='local'&&own?' To share projects with every user, add your Supabase URL and anon key to <b>MP</b> in the page code and run <b>crypto_module.sql</b>.':'')+'</p><p class="note">Airdrops and referral programmes carry risk. Never share your seed phrase, and only invest what you can afford to lose.</p></div>';
-if(CX.view=='mng')setTimeout(cxPv,0);return h}
+function cxAgo(p){var t=new Date(p.created_at||0).getTime();if(!t)return'';var d=Math.floor((Date.now()-t)/864e5);return d<1?'Added today':d==1?'Added yesterday':d<30?'Added '+d+' days ago':'Added '+Math.floor(d/30)+' mo ago'}
+function cxCard(p){var jn=CX.joined[p.id],id=esc(p.id),own=isOwner(),dm=cxDom(p.referral_link);
+return'<article class="cxc'+(jn?' jn':'')+(p.status=='ended'?' en':'')+'"><div class="cxi">'+(jn?'<span class="cxjn">✓ JOINED</span>':cxNew(p)?'<span class="cxnw">NEW</span>':'')+cxLg(p)+'<div class="cxn">'+esc(p.title)+'</div><div class="cxb">'+cxBadge(p)+cxTr(p)+'</div><p class="cxd">'+(p.description?esc(p.description):'Open the programme, complete the steps, then tap I Have Joined to track it.')+'</p><p class="cxm">'+esc(cxAgo(p))+(dm?' · '+esc(dm):'')+'</p><div class="cxa"><button class="btn b1" data-cx="open" data-id="'+id+'">Join Now</button><button class="btn b2" data-cx="joined" data-id="'+id+'"'+(jn?' disabled':'')+'>'+(jn?'✓ Joined':'I Have Joined')+'</button></div><div class="cxa2"><button data-cx="share" data-id="'+id+'">Share</button>'+(own?'<button data-cx="mng">Manage</button>':'')+'</div></div></article>'}
+function cxItems(){var q=(CX.q||'').trim().toLowerCase(),own=isOwner(),f=CX.f||'all';return CX.projects.filter(function(p){if(p.status=='unpublished'&&!own&&!CX.joined[p.id])return false;if(f=='active'&&p.status!='published')return false;if(f=='new'&&!cxNew(p))return false;if(f=='joined'&&!CX.joined[p.id])return false;return true}).filter(function(p){return!q||((p.title||'')+' '+(p.description||'')+' '+cxDom(p.referral_link)).toLowerCase().indexOf(q)>-1})}
+function cxList(){var a=cxItems(),f=CX.f||'all';
+if(!a.length){var m=CX.q?'No project matches “'+esc(CX.q)+'”.':f=='joined'?'You have not joined any project yet. Tap I Have Joined on a card to track it here.':f=='new'?'Nothing new this week.':'No airdrops yet.'+(isOwner()?' Tap Manage to add the first one.':' Check back soon.');
+return'<div class="cxs2" id="cx_s"><article class="cxc"><div class="cxi"><span class="oct"><span class="cxl" style="background:#7b3fe4">₿</span></span><div class="cxn">Nothing here</div><p class="cxd">'+m+'</p></div></article></div>'}
+return'<div class="cxs2" id="cx_s" tabindex="0" aria-label="Airdrop projects. Swipe left or right.">'+a.map(cxCard).join('')+'</div><div class="cxnav"><button class="mini" data-cx="nav" data-d="-1" aria-label="Previous project">‹</button><div><div class="cxdots" id="cx_dots"></div><span id="cx_c" class="note">1 of '+a.length+' · swipe ← →</span></div><button class="mini" data-cx="nav" data-d="1" aria-label="Next project">›</button></div>'}
+function cxFill(){var e=$('cx_list');if(!e)return;var o=$('cx_s'),l=o?o.scrollLeft:0;e.innerHTML=cxList();var s=$('cx_s');if(s){s.style.scrollBehavior='auto';s.scrollLeft=l;s.style.scrollBehavior='';cxFx(s)}}
+var cxRaf=0;
+function cxFx(s){s=s||$('cx_s');if(!s||!s.children.length)return;var r=s.getBoundingClientRect(),c=r.left+r.width/2,best=0,bd=1e9,k=s.children.length;
+[].forEach.call(s.children,function(el,i){var q=el.getBoundingClientRect(),d=Math.abs(q.left+q.width/2-c),t=Math.min(1,d/(q.width*1.1||1));el.style.setProperty('--sc',(1-.1*t).toFixed(3));el.style.setProperty('--op',(1-.4*t).toFixed(3));if(d<bd){bd=d;best=i}});
+var cc=$('cx_c');if(cc)cc.textContent=(best+1)+' of '+k+' · swipe ← →';var dt=$('cx_dots');if(dt){if(k>9)dt.innerHTML='';else{if(dt.children.length!=k)dt.innerHTML=new Array(k+1).join('<i></i>');[].forEach.call(dt.children,function(d,i){d.classList.toggle('on',i==best)})}}}
+function cxMng(){var h='<div class="box" id="cx_mng"><h3>Add a project</h3><label class="fl" for="cx_t">Project title</label><input id="cx_t" maxlength="80" value="'+esc(cxF.title)+'" placeholder="e.g. Example Protocol"><label class="fl" for="cx_l">Referral link</label><input id="cx_l" type="url" inputmode="url" value="'+esc(cxF.link)+'" placeholder="Paste your referral link"><div class="cxpv" id="cx_pv"></div><label class="fl" for="cx_d">Short description (optional)</label><textarea id="cx_d" maxlength="160" placeholder="What is it, and what must users do?">'+esc(cxF.desc||'')+'</textarea><label class="fl" for="cx_i">Image URL (optional, for Telegram Mini Apps or if the logo fails)</label><input id="cx_i" type="url" value="'+esc(cxF.img)+'" placeholder="https://…/logo.png"><div class="act2" style="margin:10px 0 0"><div style="flex:1"><label class="fl">Status</label><div class="cxseg">'+['published','unpublished'].map(function(v){return'<button data-cx="seg" data-g="status" data-v="'+v+'" class="'+(cxF.status==v?'on':'')+'">'+v[0].toUpperCase()+v.slice(1)+'</button>'}).join('')+'</div></div><div style="flex:1"><label class="fl">Trend</label><div class="cxseg">'+['up','down'].map(function(v){return'<button data-cx="seg" data-g="trend" data-v="'+v+'" class="'+(cxF.trend==v?'on':'')+'">'+(v=='up'?'▲ Up':'▼ Down')+'</button>'}).join('')+'</div></div></div><button class="btn b1 save" style="width:100%;margin-top:14px" data-cx="add">Add project</button></div><h4 style="margin:16px 0 4px;font:700 14px system-ui,sans-serif">All projects ('+CX.projects.length+')</h4>';
+return h+(CX.projects.length?CX.projects.map(function(p){var id=esc(p.id);return'<div class="cxr">'+cxLg(p)+'<div><b>'+esc(p.title)+'</b><br><small>'+esc(cxDom(p.referral_link))+'</small></div><div class="ctl"><label>Published <button class="sw'+(p.status=='published'?' on':'')+'" data-cx="tst" data-id="'+id+'" role="switch" aria-checked="'+(p.status=='published')+'" aria-label="Published"></button></label><label>Trend '+cxTr(p)+' <button class="sw'+(p.trend=='up'?' on':'')+'" data-cx="ttr" data-id="'+id+'" role="switch" aria-checked="'+(p.trend=='up')+'" aria-label="Trend up"></button></label><button class="mini" data-cx="end" data-id="'+id+'">'+(p.status=='ended'?'Reopen':'Mark ended')+'</button><button class="mini" data-cx="del" data-id="'+id+'">Delete</button></div></div>'}).join(''):'<p class="note">No projects yet. Add the first one above.</p>')}
+function cxHomeR(){var b=$('cxBody');if(!b)return;cxKeep();cxEnsure();var own=isOwner(),n=CX.projects.filter(function(p){return CX.joined[p.id]}).length,f=CX.f||'all';
+var h='<div class="cx"><div class="cxtool"><div class="pills">'+[['all','All'],['active','Active'],['new','New'],['joined','Joined ('+n+')']].map(function(x){return'<button data-cx="filter" data-v="'+x[0]+'" class="'+(f==x[0]?'on':'')+'">'+x[1]+'</button>'}).join('')+'</div>'+(own?'<button class="cxown" data-cx="mng">'+(CX.mng?'Close manager':'＋ Manage')+'</button>':'')+'</div>';
+if(!CX.loaded){b.innerHTML=h+'<p class="note" style="text-align:center">Loading…</p></div>';return}
+h+='<input id="cx_q" type="search" enterkeyhint="search" autocomplete="off" placeholder="Search projects…" aria-label="Search projects" value="'+esc(CX.q)+'"><div id="cx_list">'+cxList()+'</div>';
+if(own&&CX.mng)h+=cxMng();
+h+='<p class="note" style="margin-top:14px;text-align:center">'+(CX.mode=='cloud'?'Live and synced to the cloud.':'Saved on this device only.')+(CX.note?' '+esc(CX.note):'')+(CX.mode=='local'&&own?' To show new projects to every visitor, add your Supabase URL and anon key to MP in the page code and run crypto_module.sql.':'')+'</p><p class="note" style="text-align:center">Airdrops and referral programmes carry risk. Never share your seed phrase, and only invest what you can afford to lose.</p></div>';
+b.innerHTML=h;if(own&&CX.mng)cxPv();cxFx($('cx_s'))}
 function cxPv(){var e=$('cx_l'),o=$('cx_pv');if(!e||!o)return;var d=cxDom(e.value),im=($('cx_i')||{}).value;o.innerHTML=d?cxLg({title:($('cx_t')||{}).value||d,referral_link:e.value,logo_url:im})+'<span class="note">Logo found automatically from '+esc(d)+'.'+(/(^|\.)t\.me$|telegram/.test(d)?' Telegram Mini App? Paste its image URL below.':'')+'</span>':''}
+function pfAir(){cxEnsure();var j=CX.projects.filter(function(p){return CX.joined[p.id]});
+return'<h4>My airdrops · '+j.length+'</h4>'+(j.length?j.map(function(p){return'<div class="cxr2">'+cxLg(p)+'<b>'+esc(p.title)+'</b>'+cxBadge(p)+cxTr(p)+'<button class="mini" data-cx="open" data-id="'+esc(p.id)+'">Open</button></div>'}).join(''):'<p class="note">You have not joined any airdrop yet. Swipe the octagons on the Home page and tap I Have Joined to track them here.</p><div class="act2"><button class="btn b2" data-pf="go" data-k="x">Browse airdrops</button></div>')}
 async function cxPatch(id,patch){var sb=CX.mode=='cloud'?CX.sb:null,p=CX.projects.find(function(x){return x.id==id});if(!p)return;
-if(sb){var r=await sb.from('crypto_projects').update(patch).eq('id',id).select().single();if(r.error){toast(/row-level|permission/i.test(r.error.message)?'Admins only':'Could not save: '+r.error.message);return}Object.assign(p,r.data)}else{if(!isOwner()){toast('Owners only');return}Object.assign(p,patch);sv('mu_cx_projects',CX.projects)}cxKeep();pfR()}
-async function cxAct(b){var a=b.dataset.cx,id=b.dataset.id,p=CX.projects.find(function(x){return x.id==id}),ow=['add','tst','ttr','end','del'];
+if(sb){var r=await sb.from('crypto_projects').update(patch).eq('id',id).select().single();if(r.error){toast(/row-level|permission/i.test(r.error.message)?'Admins only':'Could not save: '+r.error.message);return}Object.assign(p,r.data)}else{if(!isOwner()){toast('Owners only');return}Object.assign(p,patch);sv('mu_cx_projects',CX.projects)}cxKeep();cxRe()}
+async function cxAct(b){var a=b.dataset.cx,id=b.dataset.id,p=CX.projects.find(function(x){return x.id==id}),ow=['add','tst','ttr','end','del','mng'];
 if(ow.indexOf(a)>-1&&!isOwner()){toast('Owners only');return}
-try{if(a=='view'){cxKeep();CX.view=b.dataset.v;pfR()}
+try{
+if(a=='filter'){CX.f=b.dataset.v;cxHomeR()}
+else if(a=='mng'){CX.mng=!CX.mng;cxHomeR();if(CX.mng)setTimeout(function(){var m=$('cx_mng');if(m)m.scrollIntoView({behavior:'smooth',block:'start'})},60)}
 else if(a=='seg'){cxF[b.dataset.g]=b.dataset.v;b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x==b)})}
-else if(a=='nav'){var s=$('cx_s');if(s&&s.firstElementChild)s.scrollBy({left:b.dataset.d*(s.firstElementChild.offsetWidth+12),behavior:'smooth'})}
+else if(a=='nav'){var s=$('cx_s');if(s&&s.firstElementChild)s.scrollBy({left:b.dataset.d*(s.firstElementChild.offsetWidth+14),behavior:'smooth'})}
 else if(a=='open'){var u=p&&cxUrl(p.referral_link);if(u)window.open(u,'_blank','noopener,noreferrer');else toast('This project has no valid link')}
-else if(a=='joined'){if(!p||CX.joined[id])return;b.disabled=true;if(CX.mode=='cloud'){var r=await CX.sb.from('user_participations').insert({project_id:id});if(r.error&&r.error.code!='23505'){b.disabled=false;toast('Could not save: '+r.error.message);return}}else{var l=ld('mu_cx_joined_'+U,[]);l.push(id);sv('mu_cx_joined_'+U,l)}CX.joined[id]=1;b.textContent='✓ Joined';var pl=document.querySelector('.cx .pills button[data-v=my]');if(pl)pl.textContent='My joined ('+Object.keys(CX.joined).length+')';log('Joined '+p.title);toast('Added to My joined projects')}
-else if(a=='add'){cxKeep();var t=cxF.title.trim(),l2=cxUrl(cxF.link),im=cxF.img.trim();if(!t||!l2){toast('Enter a title and a valid referral link');return}if(im&&!/^https?:\/\//i.test(im)){toast('The image URL must start with https://');return}
-var rec={title:t,referral_link:l2,logo_url:im||'https://icon.horse/icon/'+cxDom(l2),status:cxF.status,trend:cxF.trend};
+else if(a=='share'){var u2=p&&cxUrl(p.referral_link);if(!u2){toast('This project has no valid link');return}if(navigator.share)navigator.share({title:p.title,url:u2}).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(u2).then(function(){toast('Link copied')},function(){toast('Could not copy the link')});else toast(u2)}
+else if(a=='joined'){if(!U){openAuth('login');return}if(!p||CX.joined[id])return;b.disabled=true;if(CX.mode=='cloud'){var r=await CX.sb.from('user_participations').insert({project_id:id});if(r.error&&r.error.code!='23505'){b.disabled=false;toast('Could not save: '+r.error.message);return}}else{var l=ld('mu_cx_joined_'+U,[]);l.push(id);sv('mu_cx_joined_'+U,l)}CX.joined[id]=1;log('Joined '+p.title);toast('Added to My airdrops in your profile');cxRe()}
+else if(a=='add'){cxKeep();var t=cxF.title.trim(),l2=cxUrl(cxF.link),im=cxF.img.trim(),ds=(cxF.desc||'').trim().slice(0,160);if(!t||!l2){toast('Enter a title and a valid referral link');return}if(im&&!/^https?:\/\//i.test(im)){toast('The image URL must start with https://');return}
+var rec={title:t,referral_link:l2,logo_url:im||'https://icon.horse/icon/'+cxDom(l2),status:cxF.status,trend:cxF.trend};if(ds)rec.description=ds;
 if(CX.mode=='cloud'){var q=await CX.sb.from('crypto_projects').insert(rec).select().single();if(q.error){toast(/row-level|permission/i.test(q.error.message)?'Admins only':'Could not save: '+q.error.message);return}CX.projects.unshift(q.data)}else{rec.id='loc-'+Math.random().toString(36).slice(2,9);rec.created_at=new Date().toISOString();CX.projects.unshift(rec);sv('mu_cx_projects',CX.projects)}
-cxF={title:'',link:'',img:'',status:'published',trend:'up'};toast('Project added');pfR()}
+cxF={title:'',link:'',img:'',desc:'',status:'published',trend:'up'};CX.f='all';CX.q='';toast('Project added');cxHomeR();var s3=$('cx_s');if(s3)s3.scrollLeft=0}
 else if(a=='tst')cxPatch(id,{status:p.status=='published'?'unpublished':'published'});
 else if(a=='ttr')cxPatch(id,{trend:p.trend=='up'?'down':'up'});
 else if(a=='end')cxPatch(id,{status:p.status=='ended'?'published':'ended'});
-else if(a=='del'){if(!confirm('Delete "'+p.title+'" for everyone?'))return;if(CX.mode=='cloud'){var d=await CX.sb.from('crypto_projects').delete().eq('id',id);if(d.error){toast('Could not delete: '+d.error.message);return}}CX.projects=CX.projects.filter(function(x){return x.id!=id});if(CX.mode!='cloud')sv('mu_cx_projects',CX.projects);cxKeep();pfR()}}
+else if(a=='del'){if(!confirm('Delete "'+p.title+'" for everyone?'))return;if(CX.mode=='cloud'){var d=await CX.sb.from('crypto_projects').delete().eq('id',id);if(d.error){toast('Could not delete: '+d.error.message);return}}CX.projects=CX.projects.filter(function(x){return x.id!=id});if(CX.mode!='cloud')sv('mu_cx_projects',CX.projects);cxKeep();cxRe()}}
 catch(e){toast('Something went wrong: '+(e.message||e))}}
-PG.addEventListener('error',function(e){var i=e.target;if(!i||!i.classList||!i.classList.contains('cxl')||i.tagName!='IMG')return;var d=i.dataset.d;if(d&&!i.dataset.st){i.dataset.st=1;i.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128'}else{var w=document.createElement('div');w.innerHTML=cxTile(i.dataset.n);i.replaceWith(w.firstChild)}},true);
-PG.addEventListener('input',function(e){if(e.target.id=='cx_l'||e.target.id=='cx_i'||e.target.id=='cx_t')cxPv()});
-PG.addEventListener('input',function(e){if(e.target.id=='cx_q'){CX.q=e.target.value;cxFill()}});
-PG.addEventListener('scroll',function(e){var s=e.target;if(!s||s.id!='cx_s'||!s.firstElementChild)return;var i=Math.round(s.scrollLeft/(s.firstElementChild.offsetWidth+12))+1,c=$('cx_c');if(c)c.textContent=Math.min(i,s.children.length)+' of '+s.children.length+' · swipe ← →'},true);
-
-/* entry points: Contents menu + home page button */
-CT.splice(3,0,['Airdrops & crypto',[['cxHub','Airdrops & Crypto Hub','Octagon cards of airdrop and referral projects. Swipe, search and track the ones you joined.']]]);
-var _g4=window.mpGo;window.mpGo=function(id){if(id=='cxHub'){U?pfOpen('c'):openAuth();return}_g4(id)};
-(function(){var s=document.querySelector('#cats .sub');if(!s||$('cxHome'))return;var b=document.createElement('button');b.id='cxHome';b.className='cxhome';b.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polygon points="8,2 16,2 22,8 22,16 16,22 8,22 2,16 2,8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v10M9 10l3-3 3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span><b>Airdrops &amp; Crypto Hub</b><small>Swipe octagon cards · join · track</small></span>';b.onclick=function(){U?pfOpen('c'):openAuth()};s.insertAdjacentElement('afterend',b)})();
+/* events: home section + profile list share one handler */
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#cxSec button[data-cx]');if(b)cxAct(b)});
+document.addEventListener('error',function(e){var i=e.target;if(!i||!i.classList||!i.classList.contains('cxl')||i.tagName!='IMG')return;var d=i.dataset.d;if(d&&!i.dataset.st){i.dataset.st=1;i.src='https://www.google.com/s2/favicons?domain='+encodeURIComponent(d)+'&sz=128'}else{var w=document.createElement('div');w.innerHTML=cxTile(i.dataset.n);i.replaceWith(w.firstChild)}},true);
+document.addEventListener('input',function(e){var id=e.target.id;if(id=='cx_l'||id=='cx_i'||id=='cx_t')cxPv();if(id=='cx_q'){CX.q=e.target.value;cxFill()}});
+document.addEventListener('scroll',function(e){var s=e.target;if(!s||s.id!='cx_s'||cxRaf)return;cxRaf=requestAnimationFrame(function(){cxRaf=0;cxFx(s)})},true);
+addEventListener('resize',function(){cxFx()},{passive:true});
+(function(){var d=null;document.addEventListener('pointerdown',function(e){if(e.pointerType!='mouse'||e.button)return;var s=e.target.closest&&e.target.closest('#cx_s');if(!s||e.target.closest('button,a,input'))return;d={s:s,x:e.clientX,l:s.scrollLeft};s.classList.add('drag')});
+document.addEventListener('pointermove',function(e){if(d)d.s.scrollLeft=d.l-(e.clientX-d.x)});
+function up(){if(!d)return;d.s.classList.remove('drag');d=null}addEventListener('pointerup',up);addEventListener('pointercancel',up)})();
+/* live updates: cloud polling, cross-tab sync for local mode */
+setInterval(function(){if(!document.hidden&&CX.loaded&&!CX.busy&&CX.mode=='cloud'&&!CX.mng)cxRefresh()},60000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&CX.loaded&&!CX.busy&&CX.mode=='cloud'&&!CX.mng)cxRefresh()});
+addEventListener('storage',function(e){if(e.key=='mu_cx_projects'&&CX.mode=='local'){cxLocal();cxRe()}});
+/* entry points */
+CT.splice(3,0,['Airdrops & crypto',[['cxHub','Airdrops & Crypto','Octagon cards on the Home page. Swipe, join and track them.']]]);
+var _g4=window.mpGo;window.mpGo=function(id){if(id=='cxHub')id='cxSec';if(pfOn()&&id!='profilePage')pfBack();_g4(id)};
+/* header name chip + refresh hooks */
+function pfHd(){var h=$('hl');if(!h)return;if(!U){h.textContent='LOG IN';h.removeAttribute('aria-label');return}var d=pfd(),n=pfNm(d).split(/\s+/)[0].slice(0,12).toUpperCase();h.innerHTML='<span class="hav">'+pfAv(d)+'</span><span>'+esc(n)+'</span>';h.setAttribute('aria-label','Open my profile')}
+var _pfR=pfR;pfR=function(){_pfR();pfHd()};
+var _ui3=ui;ui=function(){_ui3();pfHd();cxHomeR()};
+pfHd();cxHomeR();
+(function(){var sec=$('cxSec');if(!sec||!window.IntersectionObserver)return;var io=new IntersectionObserver(function(en){if(!en[0].isIntersecting)return;io.disconnect();setTimeout(function(){var s=$('cx_s');if(s&&s.children.length>1&&!matchMedia('(prefers-reduced-motion:reduce)').matches){s.style.scrollSnapType='none';s.scrollBy({left:56,behavior:'smooth'});setTimeout(function(){s.scrollBy({left:-56,behavior:'smooth'})},650);setTimeout(function(){s.style.scrollSnapType=''},1500)}},700)},{threshold:.5});io.observe(sec)})();
 /* ===== v10: LETTERS, FORMS, PAYMENTS ===== */
 GR.flow={single:0};
 var ftb='l',flCur=null,flScan=null,FI={},fPrev='hero',KINDS=['Partnership','Website or app request','Meeting request','Payment or invoice','General letter'];
