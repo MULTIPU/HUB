@@ -1,31 +1,17 @@
-# MultiPU Hub — Automating Excellence
+# MultiPU Hub — GitHub Pages + Supabase
 
-Single-page site (no build step): `index.html`. Includes calligraphic design, light "circuit + current" and dark "stars, galaxies, black hole" backgrounds, a settings hub (appointments, preferences, support), the AURA AI agent, an owner Control Center, a maker QR/credit footer, and **double-tap / double-click anywhere = universal Back** (closes the top overlay, steps back through pages, then Home).
+This package excludes Cloudflare. Upload the contents of this folder to the root of the `MULTIPU/HUB` GitHub repository (the folder containing `index.html`).
 
-## Publish on GitHub Pages
-1. Create a repo, upload everything in this folder, push to `main`.
-2. Settings → Pages → Source: **GitHub Actions** (the included workflow deploys on every push).
+## Included changes
+- Filled the existing MultiPU Hub Supabase URL and browser-safe publishable key.
+- Filled the Google OAuth client ID already associated with this project.
+- Changed the TMWS launch/preview target to the included `working-system-unified.html` file, so the template is hosted with the Hub instead of pointing at the old separate site.
+- Added a TMWS adapter that stores the template's `wms` state in `public.tmws_records` for the signed-in Supabase user. Device-only mode remains clearly labelled if the user has not authenticated.
 
-## Before going live (3 settings at the top of the main script in `index.html`)
-```js
-var MP={paystackKey:'',googleClientId:'',apiBase:''}
-```
-- `googleClientId` — Google Cloud → Credentials → OAuth client (Web). Add your Pages URL as an authorized origin. Required for Google sign-in and for owner recognition.
-- `apiBase` — URL of the deployed worker (below). Enables live-web AURA and publishing site edits to all visitors.
-- Maker credit: edit the `maker-config` JSON block near the end of `index.html` (name, GitHub handle, repo URL). The footer QR points at this page, the repo, or your profile.
+## Before production use
+1. In Supabase Authentication → URL Configuration, allow the deployed GitHub Pages URL (for example `https://multipu.github.io/HUB/` and `https://multipu.github.io/HUB/working-system-unified.html`).
+2. In Supabase Authentication → Providers → Google, confirm the Google provider is enabled and uses the same Google OAuth client ID. Keep the Google Client Secret inside Supabase only; never place it in this repository.
+3. Confirm the deployed GitHub Pages URL is the actual project Pages URL before sharing it.
+4. Test sign-in, refresh, and a TMWS data change with a test account. Verify that a row appears in `public.tmws_records`.
 
-## Messages & contact → email
-Contact form, organization applications, quote requests, tickets, appointment requests and worker requests are sent to **multipuhub@gmail.com** (cc **mdmasterdan@gmail.com**) through [FormSubmit](https://formsubmit.co). **One-time step:** send any test message, then open the activation email FormSubmit sends to multipuhub@gmail.com and confirm. If sending fails the visitor's email app opens with the message prefilled.
-
-## Worker (AI with web search, shared edits)
-```bash
-cd worker && npx wrangler kv namespace create KV   # paste id in wrangler.toml
-npx wrangler secret put ANTHROPIC_API_KEY
-npx wrangler secret put GOOGLE_CLIENT_ID
-npx wrangler deploy
-```
-
-## Owners
-`mdmasterdan@gmail.com` and `multipuhub@gmail.com` (Developer, Technical Admin, Management Admin) after Google-verified sign-in. **Security note:** the static site only gates the UI; real enforcement happens in the worker (it verifies the Google token). Appointments, tickets and team roles are stored per browser until moved to a shared database.
-
-MIT licensed.
+The publishable key is intended for browser use; RLS remains the access-control boundary. No service-role key or Google client secret is included. This package does not claim that GitHub Pages has been updated automatically.
