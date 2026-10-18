@@ -1,0 +1,103 @@
+{
+  "note": "slidecraft link points to DeckCraft; getartcraft.com/apps/slidecraft returned 404 when checked.",
+  "tools": [
+    {
+      "id": "photocraft",
+      "name": "PhotoCraft",
+      "role": "Image editor",
+      "status": "early-alpha",
+      "url": "https://getartcraft.com/apps/photocraft",
+      "icon": "https://getartcraft.com/images/apps/photocraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "vectorcraft",
+      "name": "VectorCraft",
+      "role": "Vector illustration",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/vectorcraft",
+      "icon": "https://getartcraft.com/images/apps/vectorcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "figcraft",
+      "name": "FigCraft",
+      "role": "Interface design & prototyping",
+      "status": "early-alpha",
+      "url": "https://getartcraft.com/apps/figcraft",
+      "icon": "https://getartcraft.com/images/apps/figcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "slidecraft",
+      "name": "SlideCraft (DeckCraft)",
+      "role": "Slides & presentations",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/deckcraft",
+      "icon": "https://getartcraft.com/images/apps/deckcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "printcraft",
+      "name": "PrintCraft",
+      "role": "PDF workbench",
+      "status": "early-alpha",
+      "url": "https://getartcraft.com/apps/printcraft",
+      "icon": "https://getartcraft.com/images/apps/printcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "designcraft",
+      "name": "DesignCraft",
+      "role": "Page layout & publishing",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/designcraft",
+      "icon": "https://getartcraft.com/images/apps/designcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "lightcraft",
+      "name": "LightCraft",
+      "role": "Photo library & raw developer",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/lightcraft",
+      "icon": "https://getartcraft.com/images/apps/lightcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "filmcraft",
+      "name": "FilmCraft",
+      "role": "Video editor",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/filmcraft",
+      "icon": "https://getartcraft.com/images/apps/filmcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "effectcraft",
+      "name": "EffectCraft",
+      "role": "Motion graphics & VFX",
+      "status": "in-development",
+      "url": "https://getartcraft.com/apps/effectcraft",
+      "icon": "https://getartcraft.com/images/apps/effectcraft/icon.webp",
+      "source": "ArtCraft Crafting Apps"
+    },
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "role": "Self-hosted AI workspace",
+      "status": "beta-in-multipu",
+      "url": "https://github.com/pewdiepie-archdaemon/odysseus",
+      "icon": "https://github.com/pewdiepie-archdaemon.png?size=128",
+      "source": "pewdiepie-archdaemon"
+    },
+    {
+      "id": "corpus",
+      "name": "PhotoCraft Corpus",
+      "role": "Developer test data (258 PSDs)",
+      "status": "dataset",
+      "url": "https://github.com/storytold/photocraft-corpus",
+      "source": "ArtCraft"
+    }
+  ]
+}
