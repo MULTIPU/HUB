@@ -751,6 +751,7 @@ nav button.mpmore svg{fill:var(--gold);stroke:none}
 .mphelp{margin:0 14px 12px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(212,175,55,.12);font:14px/1.45 system-ui,sans-serif;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .mphelp span{flex:1 1 220px}.mphelp button{padding:8px 12px;border-radius:999px;border:1px solid var(--gold2);background:none;color:var(--ink);font:700 13px system-ui;cursor:pointer}
 </style>
+<style>html:not(.unfold) #hubMap,html:not(.unfold) #cxSec,html:not(.unfold) #cats,html:not(.unfold) #toolsSec,html:not(.unfold) #services{display:none!important}#foldBar{text-align:center;padding:18px}#foldBar button{padding:14px 26px;border-radius:12px;border:1px solid rgba(212,175,55,.7);background:linear-gradient(135deg,#e2bd4a,#a77c25);color:#1d1406;font:800 15px system-ui,sans-serif;cursor:pointer}</style>
 </head>
 <body>
 <!-- Work Automation 3D loader (plays once per load, then removes itself) -->
@@ -1450,7 +1451,7 @@ nav button.mpmore svg{fill:var(--gold);stroke:none}
 <input id="ivOrg" data-free="" placeholder="Their name (optional), e.g. Crestview Academy" maxlength="70">
 <div class="row"><button type="button" data-free="" id="ivMk">Create link</button><button type="button" data-free="" id="ivCp" hidden>Copy</button><button type="button" data-free="" id="ivSh" hidden>Share</button></div>
 <div class="lk" id="ivLk"></div><div class="qrb" id="ivQr" hidden></div></div>
-<div class="row" style="max-width:520px;margin:12px auto 0;display:flex;gap:8px;justify-content:center"><button type="button" data-free="" id="tmOpen" hidden class="stb">Team and leads (owner)</button></div>
+<div class="row" style="max-width:520px;margin:12px auto 0;display:flex;gap:8px;justify-content:center"><button type="button" data-free="" id="tmOpen" hidden class="stb">Team and leads (owner)</button><button type="button" data-free="" id="clOpen" hidden class="stb">Clone tools (owner)</button><button type="button" data-free="" id="nwOpen" hidden class="stb">Network (owner)</button></div>
 <div class="dkal"><b>Phone alerts</b><span id="alSt"></span><div class="row"><button type="button" data-free="" id="alOn">Turn on alerts</button><button type="button" data-free="" class="g" id="alTest" hidden>Send a test</button></div></div>
 </section>
 <section class="hero pg" data-g="home" id="hero">
@@ -1467,6 +1468,7 @@ nav button.mpmore svg{fill:var(--gold);stroke:none}
 <div class="btns"><a class="btn b1 mpx" data-free href="#hubsPage">OUR HUBS</a><a class="btn b1" href="#proposal">GET A PROPOSAL</a><a class="btn b2" href="#community">EXPLORE PORTFOLIO</a><a class="btn b1 mpx" href="#join">JOIN AS ORGANIZATION</a><a class="btn b2 mpx" href="#staff">STAFF · TMWS</a></div>
 <div class="term mono">&lt;multipu/multipleuniverse-exec.exe&gt;<br/><i>MULTIPLE UNIVERSE</i><br/>AUTOMATING EXCELLENCE.</div>
 </section>
+<section class="pg" data-g="home" data-free id="foldBar"><button type="button" data-free="" id="foldBtn">Show more</button></section>
 <section class="pad pg" data-g="home" data-free id="hubMap"><h2 class="t gt">Our Hubs</h2><p class="sub">Seven connected hubs. Tap one to see what it does and who it is for.</p><div class="hm-wrap"><div id="hmMap"></div><div class="hm-tiles" id="hmTiles"></div></div><h2 class="t gt" style="margin-top:34px;font-size:clamp(18px,3vw,24px)">How it works</h2><div class="hm-steps" id="hmSteps"></div></section>
 <section class="pad pg" data-g="home" data-free id="cxSec"><h2 class="t gt">Airdrops &amp; Crypto</h2><p class="sub">Swipe right to left through the octagons. Tap one to join.</p><div id="cxBody"></div></section>
 <section class="pad pg" data-g="home" id="cats"><h2 class="t gt">Pick your type of organization</h2><p class="sub">Swipe to explore — no endless scrolling.</p>
@@ -3681,6 +3683,131 @@ function openG(){if(!gd){gd=document.createElement('div');gd.id='guide';gd.setAt
 var mb=$('moreBtn');if(mb){var nb=mb.cloneNode(true);mb.replaceWith(nb);nb.setAttribute('data-free','');nb.addEventListener('click',function(e){e.stopPropagation();openG()})}
 var H={split:'A quick look at how slow manual work becomes automatic.',demo:'Try a school or office dashboard. No sign-up needed.',quote:'Answer a few questions and get an instant estimate and timeline.',pricing:'Our packages and what each one includes.',levels:'How much your team does and how much the system does for you.',proposal:'Write a partnership letter for a school or company. Print it, or send it as a link.',acct:'Your profile and a record of what you have done on this site.',billing:'Your payment setup and receipts. This is a demo for now.',join:'Schools and companies: tell us what you need and we will reply.',community:'Posts from organizations we work with. Schools and companies can also apply to join from here.',portal:'Your account area: profile, projects and billing. Log in to see your own information. The dashboards shown here are demos.',curriculum:'Free practice lessons for the tools we use. Work through each lesson and tick it off.',staff:'For people who work with us: tasks, rank and pay record.',templates:'Ready-made websites, apps and documents. Pick one, then ask us to set it up for you.',flowPage:'Your letters, projects and payments. For a quick letter, use Write a letter on the home page.',hubsPage:'The seven parts of the platform and what each one does.',planPage:'The step-by-step plan for building a school platform. Tick each step when it is done.',about:'Who we are and what we are building.'};
 Object.keys(H).forEach(function(id){var sc=$(id);if(!sc||sc.querySelector('.mphelp'))return;var d=document.createElement('div');d.className='mphelp';var sp=document.createElement('span');sp.textContent=H[id];var b=document.createElement('button');b.type='button';b.setAttribute('data-free','');b.textContent='Back to start';b.onclick=function(){mpGo('hero')};d.appendChild(sp);d.appendChild(b);sc.insertBefore(d,sc.firstChild)});
+})();
+</script>
+<script>
+/* ---- clone tools (owner only) ---- */
+(function(){
+var OWNERS=['mdmasterdan@gmail.com','multipuhub@gmail.com'];
+var REPO='https://github.com/storytold/craft-anything',REL=REPO+'/releases',SITE='https://getartcraft.com/apps/craft-anything';
+function who(){var u=null;try{u=localStorage.getItem('mu_sess');u=JSON.parse(u)}catch(e){}return typeof u=='string'?u.toLowerCase():''}
+function ok(){return OWNERS.indexOf(who())>-1}
+var b=document.getElementById('clOpen'),pn;if(!b)return;
+function show(){b.hidden=!ok();if(!ok()&&pn){pn.remove();pn=null}}
+function el(t,x,c){var e=document.createElement(t);if(x!=null)e.textContent=x;if(c)e.style.cssText=c;return e}
+function link(t,h){var a=el('a',t,'display:block;padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:#2b2048;color:#f1ead6;text-decoration:none;font:700 14px system-ui;margin-top:8px');a.href=h;a.target='_blank';a.rel='noopener noreferrer';return a}
+function save(txt){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/html'}));a.download='multipu-hub-copy-'+new Date().toISOString().slice(0,10)+'.html';document.body.appendChild(a);a.click();a.remove()}
+function copy(m){fetch(location.href.split('#')[0],{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.text()}).catch(function(){return '<!DOCTYPE html>\n'+document.documentElement.outerHTML}).then(function(t){save(t);m.textContent='Copy downloaded.'})}
+b.onclick=function(){if(!ok())return;if(pn){pn.remove();pn=null;return}
+ pn=el('div',null,'position:fixed;inset:0;z-index:120;background:rgba(10,6,22,.82);display:flex;align-items:center;justify-content:center;padding:14px');pn.setAttribute('role','dialog');pn.setAttribute('aria-label','Clone tools');
+ var w=el('div',null,'max-width:440px;width:100%;max-height:90vh;overflow:auto;background:#150f26;color:#f1ead6;border:1px solid rgba(212,175,55,.6);border-radius:14px;padding:16px;font:14px/1.5 system-ui,sans-serif');
+ w.appendChild(el('h3','Clone tools (owners only)','margin:0 0 6px;color:#e2bd4a'));
+ w.appendChild(el('p','Craft Anything is a free desktop program (Rust, MIT/Apache). It cannot run inside a web page, so install it on your computer, then point it at a site you own or have permission to copy.','margin:0'));
+ w.appendChild(link('Open the Craft Anything repository',REPO));w.appendChild(link('Download the app (releases)',REL));w.appendChild(link('Craft Anything home page',SITE));
+ w.appendChild(el('p','Or use REA, which works through your coding agent (needs Node.js). Run this in a terminal, approve the plan, then restart your agent:','margin:12px 0 0'));
+ var cmd=el('code','npx rea-agents@latest setup','display:block;margin-top:6px;padding:10px;border-radius:8px;background:#0b0718;color:#e2bd4a;word-break:break-all');w.appendChild(cmd);
+ var pr='Use REA to inspect '+location.origin+location.pathname+'. Clone this website for me.',cp=el('button','Copy the REA prompt','width:100%;margin-top:8px;padding:11px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:#2b2048;color:#f1ead6;font:700 13px system-ui;cursor:pointer');cp.type='button';cp.setAttribute('data-free','');cp.onclick=function(){try{navigator.clipboard.writeText(pr).then(function(){cp.textContent='Copied'})}catch(e){cp.textContent=pr}};w.appendChild(cp);
+ w.appendChild(link('REA home page and guides','https://rea.tools/'));
+ var m=el('div',null,'margin-top:8px;color:#ffd9a0'),d=el('button','Download a copy of this site','width:100%;margin-top:8px;padding:13px;border-radius:10px;border:0;background:linear-gradient(135deg,#e2bd4a,#a77c25);color:#1d1406;font:800 14px system-ui;cursor:pointer');d.type='button';d.setAttribute('data-free','');d.onclick=function(){m.textContent='Preparing…';copy(m)};
+ var x=el('button','Close','width:100%;margin-top:8px;padding:11px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:#2b2048;color:#f1ead6;font:700 13px system-ui;cursor:pointer');x.type='button';x.setAttribute('data-free','');x.onclick=function(){pn.remove();pn=null};
+ w.appendChild(d);w.appendChild(m);w.appendChild(x);pn.appendChild(w);document.body.appendChild(pn)};
+show();addEventListener('storage',show);setInterval(show,1500);
+})();
+</script>
+<script>
+(function(){var R=document.documentElement,F=['hubMap','cxSec','cats','toolsSec','services'],b=document.getElementById('foldBtn');if(!b)return;
+function set(on){R.classList.toggle('unfold',on);b.textContent=on?'Show less':'Show more'}
+b.onclick=function(){set(!R.classList.contains('unfold'))};
+var g=window.mpGo;if(typeof g=='function')window.mpGo=function(id){if(F.indexOf(id)>-1)set(true);return g.apply(this,arguments)};
+})();
+</script>
+<script>
+/* ---- organization network (owner only) ---- */
+(function(){
+var OWNERS=['mdmasterdan@gmail.com','multipuhub@gmail.com'];
+var GR=[['lagos','Lagos State','#e2bd4a',150],['state','Other states (Nigeria)','#8a3fd0',235],['country','Other countries','#2fa37a',320],['continent','Continents','#d9663b',405]];
+function who(){var u=null;try{u=JSON.parse(localStorage.getItem('mu_sess'))}catch(e){}return typeof u=='string'?u.toLowerCase():''}
+function ok(){return OWNERS.indexOf(who())>-1}
+function ld(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function el(t,x,c){var e=document.createElement(t);if(x!=null)e.textContent=x;if(c)e.style.cssText=c;return e}
+var NS='http://www.w3.org/2000/svg';function se(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e}
+var net=ld('mu_net',[]),logs=ld('mu_netlog',[]);
+function log(m){logs.unshift({t:Date.now(),m:m});logs=logs.slice(0,200);sv('mu_netlog',logs)}
+function save(){sv('mu_net',net)}
+function short(u,n){var h='';try{h=new URL(/^https?:/i.test(u)?u:'https://'+u).hostname.replace(/^www\./,'')}catch(e){}var b=(n||h.split('.')[0]||'ORG');return b.length<=6?b.toUpperCase():b.slice(0,6).toUpperCase()}
+function add(o){if(!ok())return null;var url=(o.url||'').trim(),key=url.toLowerCase().replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'');
+ if(key&&net.some(function(x){return x.key==key})){return null}
+ var n={id:'n'+Date.now()+Math.floor(Math.random()*999),key:key,url:url,name:(o.name||'').trim()||short(url),full:o.full||'',addr:(o.addr||'').slice(0,200),grp:o.grp||'lagos',place:o.place||'',auto:!!o.auto,t:Date.now()};
+ net.push(n);save();log('Joined: '+n.name+' ('+place(n)+')'+(n.auto?' [auto from this site]':''));return n}
+function place(n){var g=GR.filter(function(x){return x[0]==n.grp})[0];return (g?g[1]:'')+(n.place?' - '+n.place:'')}
+window.MPNet={add:add,list:function(){return net.slice()}};
+var LG=/\b(lagos|ikeja|lekki|yaba|surulere|victoria island|ikoyi|ajah|ikorodu|epe|badagry|apapa|oshodi|mushin|agege|alimosho|festac|maryland|gbagada|ojota|ketu|magodo|isolo|ojo|ibeju|egbeda|ipaja|ikotun|ajegunle|amuwo|somolu|bariga|oniru|sangotedo|ogba|oworonshoki|ilupeju|lasgidi)\b/i;
+var NG=[['Abia','abia|umuahia|aba\\b'],['Adamawa','adamawa|yola'],['Akwa Ibom','akwa ibom|uyo'],['Anambra','anambra|awka|onitsha|nnewi'],['Bauchi','bauchi'],['Bayelsa','bayelsa|yenagoa'],['Benue','benue|makurdi'],['Borno','borno|maiduguri'],['Cross River','cross river|calabar'],['Delta','delta state|asaba|warri|sapele'],['Ebonyi','ebonyi|abakaliki'],['Edo','edo state|benin city'],['Ekiti','ekiti|ado.ekiti'],['Enugu','enugu'],['Gombe','gombe'],['Imo','imo state|owerri'],['Jigawa','jigawa|dutse'],['Kaduna','kaduna|zaria'],['Kano','kano'],['Katsina','katsina'],['Kebbi','kebbi|birnin kebbi'],['Kogi','kogi|lokoja'],['Kwara','kwara|ilorin'],['Niger State','niger state|minna'],['Nasarawa','nasarawa|lafia'],['Ogun','ogun|abeokuta|sagamu|ijebu|ota\\b'],['Ondo','ondo|akure'],['Osun','osun|osogbo|ile.ife|ilesa'],['Oyo','oyo|ibadan'],['Plateau','plateau|jos\\b'],['Rivers','rivers state|port harcourt'],['Sokoto','sokoto'],['Taraba','taraba|jalingo'],['Yobe','yobe|damaturu'],['Zamfara','zamfara|gusau'],['FCT Abuja','abuja|\\bfct\\b|garki|wuse|maitama|gwarinpa']].map(function(x){return[x[0],new RegExp('\\b('+x[1]+')',"i")]});
+var CT=[['Ghana','ghana|accra|kumasi'],['Kenya','kenya|nairobi'],['South Africa','south africa|johannesburg|cape town'],['Uganda','uganda|kampala'],['Tanzania','tanzania|dar es salaam'],['Rwanda','rwanda|kigali'],['Cameroon','cameroon|yaounde|douala'],['Senegal','senegal|dakar'],['Ivory Coast','ivory coast|cote d.ivoire|abidjan'],['Benin Republic','benin republic|republic of benin|cotonou'],['Togo','togo|lome'],['Egypt','egypt|cairo'],['Ethiopia','ethiopia|addis'],['Zambia','zambia|lusaka'],['Zimbabwe','zimbabwe|harare'],['Botswana','botswana'],['Namibia','namibia'],['Morocco','morocco|casablanca'],['Liberia','liberia|monrovia'],['Sierra Leone','sierra leone|freetown'],['Gambia','gambia|banjul'],['Niger Republic','niger republic|niamey'],['United Kingdom','united kingdom|\\buk\\b|england|scotland|wales|london|manchester|birmingham'],['United States','united states|\\busa\\b|u\\.s\\.a|new york|texas|california|atlanta|houston|washington'],['Canada','canada|toronto|vancouver|ottawa'],['Germany','germany|berlin'],['France','france|paris'],['Spain','spain|madrid'],['Italy','italy|rome|milan'],['Netherlands','netherlands|amsterdam'],['Ireland','ireland|dublin'],['India','india|mumbai|delhi'],['China','china|beijing|shanghai'],['Japan','japan|tokyo'],['UAE','dubai|abu dhabi|united arab emirates|\\buae\\b'],['Saudi Arabia','saudi'],['Brazil','brazil'],['Mexico','mexico'],['Australia','australia|sydney|melbourne'],['New Zealand','new zealand'],['Singapore','singapore'],['Malaysia','malaysia'],['Turkey','turkey|istanbul'],['Russia','russia|moscow']].map(function(x){return[x[0],new RegExp('\\b('+x[1]+')',"i")]});
+var CN=[['Africa',/\bafrica\b/i],['Europe',/\beurope\b/i],['Asia',/\basia\b/i],['North America',/\bnorth america\b/i],['South America',/\bsouth america\b/i],['Oceania',/\boceania\b/i],['Antarctica',/\bantarctica\b/i]];
+function classify(t){t=(t||'').trim();if(t.length<3)return null;var i,r;
+ for(i=0;i<CT.length;i++)if(CT[i][1].test(t))return{grp:'country',place:CT[i][0]};
+ if(LG.test(t))return{grp:'lagos',place:(t.match(LG)||[''])[0].replace(/^./,function(c){return c.toUpperCase()})};
+ for(i=0;i<NG.length;i++)if(NG[i][1].test(t))return{grp:'state',place:NG[i][0]};
+ if(/\bnigeria\b/i.test(t))return{grp:'state',place:'Nigeria'};
+ for(i=0;i<CN.length;i++)if(CN[i][1].test(t))return{grp:'continent',place:CN[i][0]};
+ return null}
+var GRN={lagos:'Lagos State',state:'Other states (Nigeria)',country:'Other countries',continent:'Continents'};
+var b=document.getElementById('nwOpen'),pn;if(!b)return;
+function show(){b.hidden=!ok();if(!ok()&&pn){pn.remove();pn=null}}
+function render(){pn.textContent='';var w=el('div',null,'position:absolute;inset:0;background:#150f26;color:#f1ead6;display:flex;flex-direction:column;font:14px/1.5 system-ui,sans-serif');
+ var hd=el('div',null,'display:flex;gap:8px;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(212,175,55,.5)');hd.appendChild(el('b','Organization network','flex:1;color:#e2bd4a'));
+ var tabs=['Map','List','Add','Activity'],cur=render.tab||'Map';
+ tabs.forEach(function(t){var x=el('button',t,'padding:8px 11px;border-radius:9px;border:1px solid rgba(212,175,55,.5);background:'+(t==cur?'#a77c25':'#2b2048')+';color:#f1ead6;font:700 12px system-ui;cursor:pointer');x.type='button';x.setAttribute('data-free','');x.onclick=function(){render.tab=t;render()};hd.appendChild(x)});
+ var cx=el('button','Close','padding:8px 11px;border-radius:9px;border:0;background:#3a2a5e;color:#fff;font:700 12px system-ui;cursor:pointer');cx.type='button';cx.setAttribute('data-free','');cx.onclick=function(){pn.remove();pn=null};hd.appendChild(cx);w.appendChild(hd);
+ var body=el('div',null,'flex:1;overflow:auto;padding:12px;position:relative');w.appendChild(body);pn.appendChild(w);
+ if(cur=='Map')map(body);else if(cur=='List')list(body);else if(cur=='Add')addv(body);else act(body)}
+function map(c){c.style.padding='0';c.style.overflow='hidden';
+ var svg=se('svg',{width:'100%',height:'100%',style:'touch-action:none;cursor:grab;display:block'}),vb={x:-480,y:-480,w:960,h:960};
+ function sv2(){svg.setAttribute('viewBox',vb.x+' '+vb.y+' '+vb.w+' '+vb.h)}sv2();
+ var g=se('g',{});svg.appendChild(g);
+ GR.forEach(function(r){g.appendChild(se('circle',{r:r[3],fill:'none',stroke:r[2],'stroke-opacity':'.25','stroke-dasharray':'4 6'}));var t=se('text',{x:0,y:-r[3]-6,'text-anchor':'middle',fill:r[2],'font-size':'12'});t.textContent=r[1];g.appendChild(t)});
+ GR.forEach(function(r){var ns=net.filter(function(n){return n.grp==r[0]});ns.forEach(function(n,i){var a=2*Math.PI*i/ns.length-Math.PI/2,x=Math.cos(a)*r[3],y=Math.sin(a)*r[3];
+  g.appendChild(se('line',{x1:0,y1:0,x2:x,y2:y,stroke:r[2],'stroke-opacity':'.5','stroke-width':'1.5'}));
+  var nd=se('g',{style:'cursor:pointer'});nd.appendChild(se('circle',{cx:x,cy:y,r:26,fill:'#2b2048',stroke:r[2],'stroke-width':'2'}));var t=se('text',{x:x,y:y+4,'text-anchor':'middle',fill:'#fff','font-size':'11','font-weight':'700'});t.textContent=n.name;nd.appendChild(t);
+  var tt=se('title',{});tt.textContent=n.full||n.name+' - '+place(n)+(n.url?' - '+n.url:'');nd.appendChild(tt);nd.addEventListener('click',function(){if(moved)return;if(n.url)window.open(/^https?:/i.test(n.url)?n.url:'https://'+n.url,'_blank','noopener')});g.appendChild(nd)})});
+ g.appendChild(se('circle',{r:44,fill:'#a77c25',stroke:'#e2bd4a','stroke-width':'3'}));var h=se('text',{'text-anchor':'middle',y:7,fill:'#1d1406','font-size':'22','font-weight':'800'});h.textContent='HUB';g.appendChild(h);
+ var moved=false,pts={},d0=0;
+ svg.addEventListener('pointerdown',function(e){svg.setPointerCapture(e.pointerId);pts[e.pointerId]={x:e.clientX,y:e.clientY};moved=false;d0=0});
+ svg.addEventListener('pointermove',function(e){var p=pts[e.pointerId];if(!p)return;var k=Object.keys(pts);var r=svg.getBoundingClientRect(),sc=vb.w/r.width;
+  if(k.length==2){var o=pts[k[0]==e.pointerId?k[1]:k[0]];pts[e.pointerId]={x:e.clientX,y:e.clientY};var d=Math.hypot(e.clientX-o.x,e.clientY-o.y);if(d0){zoom(d0/d,(e.clientX+o.x)/2,(e.clientY+o.y)/2)}d0=d;moved=true;return}
+  var dx=e.clientX-p.x,dy=e.clientY-p.y;if(Math.abs(dx)+Math.abs(dy)>2)moved=true;vb.x-=dx*sc;vb.y-=dy*sc;pts[e.pointerId]={x:e.clientX,y:e.clientY};sv2()});
+ function up(e){delete pts[e.pointerId];d0=0}svg.addEventListener('pointerup',up);svg.addEventListener('pointercancel',up);
+ function zoom(f,cx2,cy2){var r=svg.getBoundingClientRect(),px=vb.x+(cx2-r.left)/r.width*vb.w,py=vb.y+(cy2-r.top)/r.height*vb.h;var nw=Math.min(3000,Math.max(150,vb.w*f));f=nw/vb.w;vb.x=px-(px-vb.x)*f;vb.y=py-(py-vb.y)*f;vb.w*=f;vb.h*=f;sv2()}
+ svg.addEventListener('wheel',function(e){e.preventDefault();zoom(e.deltaY>0?1.15:.87,e.clientX,e.clientY)},{passive:false});
+ c.appendChild(svg);var ct=el('div',null,'position:absolute;right:10px;bottom:10px;display:flex;gap:6px');
+ [['+',.8],['-',1.25],['Reset',0]].forEach(function(z){var x=el('button',z[0],'padding:10px 14px;border-radius:9px;border:1px solid rgba(212,175,55,.5);background:#2b2048;color:#fff;font:800 14px system-ui;cursor:pointer');x.type='button';x.setAttribute('data-free','');x.onclick=function(){if(!z[1]){vb={x:-480,y:-480,w:960,h:960};sv2()}else{var r=svg.getBoundingClientRect();zoom(z[1],r.left+r.width/2,r.top+r.height/2)}};ct.appendChild(x)});c.appendChild(ct);
+ if(!net.length){var e=el('div','No organizations yet. Open Add and paste a link.','position:absolute;left:0;right:0;top:12px;text-align:center;color:#cfc4e8');c.appendChild(e)}}
+function list(c){if(!net.length){c.appendChild(el('p','Nothing here yet.'));return}
+ GR.forEach(function(r){var ns=net.filter(function(n){return n.grp==r[0]});if(!ns.length)return;c.appendChild(el('h3',r[1]+' ('+ns.length+')','margin:14px 0 6px;color:'+r[2]));
+  ns.forEach(function(n){var row=el('div',null,'display:flex;gap:8px;align-items:center;padding:9px;border:1px solid rgba(212,175,55,.3);border-radius:10px;margin-bottom:6px');var i=el('div',null,'flex:1;min-width:0');i.appendChild(el('b',n.name));i.appendChild(el('div',(n.full?n.full+' - ':'')+(n.place||'no place set')+' - '+new Date(n.t).toLocaleDateString(),'font-size:12px;color:#cfc4e8'));if(n.url)i.appendChild(el('div',n.url,'font-size:12px;color:#8fb3ff;word-break:break-all'));row.appendChild(i);
+   var s=document.createElement('select');s.style.cssText='padding:8px;border-radius:8px;background:#2b2048;color:#fff;border:1px solid rgba(212,175,55,.5)';GR.forEach(function(g){var o=el('option',g[1]);o.value=g[0];if(g[0]==n.grp)o.selected=true;s.appendChild(o)});s.setAttribute('data-free','');s.onchange=function(){n.grp=s.value;save();log('Moved '+n.name+' to '+place(n));render()};row.appendChild(s);
+   var d=el('button','Remove','padding:8px;border-radius:8px;border:0;background:#7a2a2a;color:#fff;font:700 12px system-ui;cursor:pointer');d.type='button';d.setAttribute('data-free','');d.onclick=function(){if(!confirm('Remove '+n.name+' from the network?'))return;net=net.filter(function(x){return x!==n});save();log('Removed '+n.name);render()};row.appendChild(d);c.appendChild(row)})})}
+function addv(c){c.appendChild(el('p','Paste a link, give it a short name (like SEL, TPMC, DAB) and say where it is.','margin:0 0 8px'));
+ function f(l,ph){var i=document.createElement('input');i.placeholder=ph;i.maxLength=160;i.setAttribute('data-free','');i.style.cssText='width:100%;padding:11px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:#0b0718;color:#fff;margin:4px 0 10px;font:inherit';c.appendChild(el('label',l,'font-size:13px;color:#cfc4e8'));c.appendChild(i);return i}
+ var u=f('Link','https://example.com'),nm=f('Short name','SEL'),fl=f('Full name (optional)','Full organization name'),ad=f('Address (used to place the organization on the map)','e.g. 12 Allen Avenue, Ikeja, Lagos');
+ c.appendChild(el('label','Where is it?','font-size:13px;color:#cfc4e8'));var sl=document.createElement('select');sl.setAttribute('data-free','');sl.style.cssText='width:100%;padding:11px;border-radius:10px;background:#0b0718;color:#fff;border:1px solid rgba(212,175,55,.5);margin:4px 0 10px';GR.forEach(function(g){var o=el('option',g[1]);o.value=g[0];sl.appendChild(o)});c.appendChild(sl);
+ var pl=f('Place (state, country or continent)','e.g. Ikeja, Abuja, Ghana, Africa');var m=el('div',null,'color:#ffd9a0;margin-bottom:8px');
+ var touched=false;sl.addEventListener('change',function(){touched=true});pl.addEventListener('input',function(){touched=true});
+ function pred(){var r=classify(ad.value);if(!r){m.textContent=ad.value.trim().length>2?'Could not tell from this address. Add the city, state or country, or choose below.':'';return}m.textContent='Predicted: '+GRN[r.grp]+' - '+r.place;if(!touched){sl.value=r.grp;pl.value=r.place}}
+ ad.addEventListener('input',pred);
+ var gb=el('button','Use my current location','padding:9px 12px;border-radius:9px;border:1px solid rgba(212,175,55,.5);background:#2b2048;color:#fff;font:700 12px system-ui;cursor:pointer;margin:-4px 0 10px');gb.type='button';gb.setAttribute('data-free','');ad.insertAdjacentElement('afterend',gb);
+ gb.onclick=function(){if(!navigator.geolocation){m.textContent='This device cannot share its location. Type the address instead.';return}m.textContent='Asking for your location...';
+  navigator.geolocation.getCurrentPosition(function(p){fetch('https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat='+p.coords.latitude+'&lon='+p.coords.longitude).then(function(r){return r.json()}).then(function(j){ad.value=j.display_name||'';pred()}).catch(function(){m.textContent='Could not turn your location into an address. Type it instead.'})},function(){m.textContent='Location permission was not given. Type the address instead.'},{timeout:12000})};
+ var go=el('button','Join the network','width:100%;padding:13px;border-radius:10px;border:0;background:linear-gradient(135deg,#e2bd4a,#a77c25);color:#1d1406;font:800 14px system-ui;cursor:pointer');go.type='button';go.setAttribute('data-free','');
+ go.onclick=function(){if(!u.value.trim()&&!nm.value.trim()){m.textContent='Add a link or a short name.';return}var n=add({url:u.value,name:nm.value,full:fl.value,grp:sl.value,place:pl.value,addr:ad.value});if(!n){m.textContent='That link is already in the network.';return}render.tab='Map';render()};
+ c.appendChild(go);c.appendChild(m)}
+function act(c){if(!logs.length){c.appendChild(el('p','No activity yet.'));return}logs.forEach(function(l){c.appendChild(el('div',new Date(l.t).toLocaleString()+' - '+l.m,'padding:8px 0;border-bottom:1px solid rgba(212,175,55,.2)'))})}
+b.onclick=function(){if(!ok())return;if(pn){pn.remove();pn=null;return}pn=el('div',null,'position:fixed;inset:0;z-index:125;background:#150f26');pn.setAttribute('role','dialog');pn.setAttribute('aria-label','Organization network');document.body.appendChild(pn);render.tab='Map';render()};
+/* auto-join: when an invite link is made on this site */
+var mk=document.getElementById('ivMk');if(mk)mk.addEventListener('click',function(){setTimeout(function(){if(!ok())return;var lk=document.getElementById('ivLk'),og=document.getElementById('ivOrg'),t=lk?(lk.textContent||'').trim():'',nme=og?og.value.trim():'';if(!t||!nme)return;add({url:t,name:short(t,nme.split(/\s+/).map(function(w){return w[0]}).join('')||nme),full:nme,grp:'lagos',place:'',auto:true})},400)});
+show();addEventListener('storage',show);setInterval(show,1500);
 })();
 </script>
 </body>
